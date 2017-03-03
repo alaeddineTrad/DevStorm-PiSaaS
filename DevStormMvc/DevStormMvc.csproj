@@ -34,6 +34,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="Alias-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28localdb%29\MSSQLLocalDB%3b          Initial Catalog=DevStormDBMVC%3b          Integrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Alias-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -182,17 +193,22 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
+    <Compile Include="Controllers\CommentAPIController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RateAPIController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
+    <Compile Include="Controllers\ShowroomAPIController.cs" />
     <Compile Include="Controllers\ShowroomController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Controllers\VoucherAPIController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="CS.aspx.cs">
       <DependentUpon>CS.aspx</DependentUpon>

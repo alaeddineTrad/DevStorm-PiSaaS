@@ -10,15 +10,15 @@ namespace DevStormMvc.Identity_Management
     public class ADCrud
     {
 
-        public string AddUser(User u)
+        public string AddUser(string username, string firstname, string lastname,string pwd)
         {
             DirectoryEntry objADAM; // Binding object.
             DirectoryEntry objUser; // User object.
 
-            string strDisplayName = u.FirstName + " " + u.FirstName;
-            string strUser = u.UserName;
+            string strDisplayName = firstname + " " + lastname;
+            string strUser = username;
             string strUserPrincipalName = strUser + "@devstorm.tn";
-            string pw = u.Password;
+            string pw = pwd;
             string strGroup = "CN=Users,OU=ZARA";
             string samacct;
 
@@ -28,7 +28,7 @@ namespace DevStormMvc.Identity_Management
             const int ADS_PASSWORD_ENCODE_REQUIRE_SSL = 0;
             const int ADS_PASSWORD_ENCODE_CLEAR = 1;
 
-            string strServer = "192.168.126.189"; //IP to your ad server
+            string strServer = "34.249.163.90"; //IP to your ad server
             string strUserOu = "OU=ZARA,DC=devstorm,DC=tn";
             string strPort = "389";
             int intPort = Int32.Parse(strPort);
@@ -37,12 +37,12 @@ namespace DevStormMvc.Identity_Management
 
             try
             {
-                objADAM = new DirectoryEntry("LDAP://" + strServer + ":" + strPort + "/" + strUserOu, "Administrateur", "KingHolding2007.", AuthTypes);
+                objADAM = new DirectoryEntry("LDAP://" + strServer + ":" + strPort + "/" + strUserOu, "Administrator", "Ci%c9vG!$q", AuthTypes);
                 objADAM.RefreshCache();
             }
             catch (Exception e)
             {
-                return e.Message ;
+                return e.Message + "3asba";
             }
 
             try
@@ -61,10 +61,10 @@ namespace DevStormMvc.Identity_Management
                 objUser = objADAM.Children.Add("CN=" + strUser/* + ",ou=ZARA"*/, "user");
                 objUser.Properties["displayName"].Add(strDisplayName);
                 objUser.Properties["userPrincipalName"].Add(strUserPrincipalName);
-                objUser.Properties["mail"].Add(u.Email);
+                objUser.Properties["mail"].Add(strUserPrincipalName);
                 objUser.Properties["sAMAccountName"].Add(samacct);
-                objUser.Properties["givenName"].Add(u.FirstName);
-                objUser.Properties["sn"].Add(u.LastName);
+                objUser.Properties["givenName"].Add(firstname);
+                objUser.Properties["sn"].Add(lastname);
                 objUser.CommitChanges();
                 objUser.RefreshCache();
 
@@ -84,7 +84,7 @@ namespace DevStormMvc.Identity_Management
             }
             catch (Exception e)
             {
-                return e.Message;
+                return e.Message + "sormek";
             }
 
             //Add user to students group
