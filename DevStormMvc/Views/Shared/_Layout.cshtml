@@ -3,7 +3,7 @@
 
 <!-- Mirrored from remtsoy.com/tf_templates/the_box/demo_v1_6/index-layout-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Mar 2017 18:26:56 GMT -->
 <head>
-    <title>the box - Index layout 3</title>
+    <title>See&Buy</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -139,20 +139,20 @@
             <hr />
             <form>
                 @*<div class="form-group">
-                    <label>Email or Username</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input class="i-check" type="checkbox" />Remeber Me
-                    </label>
-                </div>
-                <input class="btn btn-primary" type="submit" value="Sign In" />*@
-                
+                        <label>Email or Username</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input class="i-check" type="checkbox" />Remeber Me
+                        </label>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Sign In" />*@
+
             </form>
             <div class="gap gap-small"></div>
             <ul class="list-inline">
@@ -166,33 +166,33 @@
         </div>
         <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
             @*<h3 class="widget-title">Create TheBox Account</h3>
-            <p>Ready to get best offers? Let's get started!</p>*@
+                <p>Ready to get best offers? Let's get started!</p>*@
             <hr />
             @*@Html.Partial("_RegisterPartial")*@
             @*<form>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="form-group">
-                    <label>Repeat Password</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input class="form-control" type="text" />
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input class="i-check" type="checkbox" />Subscribe to the Newsletter
-                    </label>
-                </div>
-                <input class="btn btn-primary" type="submit" value="Create Account" />
-            </form>*@
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Repeat Password</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input class="i-check" type="checkbox" />Subscribe to the Newsletter
+                        </label>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Create Account" />
+                </form>*@
             <div class="gap gap-small"></div>
             <ul class="list-inline">
                 <li>
@@ -1811,69 +1811,31 @@
                             <a class="fa fa-search navbar-main-search-submit" href="#"></a>
                         </div>
 
+
+
                     </form>
+                    @*<ul class="nav navbar-nav navbar-right">
+                            <li>
+
+                                <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>
+                            </li>
+                            <li>
+                                <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text"> @Html.ActionLink("Create Account", "Create", "ADuser")</a>
+                            </li>
+
+                        </ul>*@
+
+                    @*<ul class="nav navbar-nav navbar-right">
+                            <li  data-effect="mfp-move-from-top" class="popup-text" <a href="@Html.Partial("_LoginPartial")"/></li>
+                            <li  data-effect="mfp-move-from-top" class="popup-text" <a href="@Html.ActionLink("Create","Create","ADuser") /></li>
+                        </ul>*@
+
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            
-                            <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>
-                        </li>
-                        <li>
-                            <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text"> @Html.ActionLink("Create Account", "Create", "ADuser")</a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="fa fa-shopping-cart" href="shopping-cart.html"></a>
-                            <ul class="dropdown-menu dropdown-menu-shipping-cart">
-                                <li>
-                                    <a class="dropdown-menu-shipping-cart-img" href="#">
-                                        <img src="img/cart/1.jpg" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                    <div class="dropdown-menu-shipping-cart-inner">
-                                        <p class="dropdown-menu-shipping-cart-price">$74</p>
-                                        <p class="dropdown-menu-shipping-cart-item">
-                                            <a href="#">Gucci Patent Leather Open Toe Platform</a>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-menu-shipping-cart-img" href="#">
-                                        <img src="img/cart/2.jpg" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                    <div class="dropdown-menu-shipping-cart-inner">
-                                        <p class="dropdown-menu-shipping-cart-price">$97</p>
-                                        <p class="dropdown-menu-shipping-cart-item">
-                                            <a href="#">Nikon D5200 24.1 MP Digital SLR Camera</a>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-menu-shipping-cart-img" href="#">
-                                        <img src="img/cart/3.jpg" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                    <div class="dropdown-menu-shipping-cart-inner">
-                                        <p class="dropdown-menu-shipping-cart-price">$94</p>
-                                        <p class="dropdown-menu-shipping-cart-item">
-                                            <a href="#">Apple 11.6" MacBook Air Notebook </a>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-menu-shipping-cart-img" href="#">
-                                        <img src="img/cart/4.jpg" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                    <div class="dropdown-menu-shipping-cart-inner">
-                                        <p class="dropdown-menu-shipping-cart-price">$12</p>
-                                        <p class="dropdown-menu-shipping-cart-item">
-                                            <a href="#">Fossil Women's Original Boyfriend</a>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p class="dropdown-menu-shipping-cart-total">Total: $150</p>
-                                    <button class="dropdown-menu-shipping-cart-checkout btn btn-primary">Checkout</button>
-                                </li>
-                            </ul>
-                        </li>
+                        <li data-effect="mfp-move-from-top" class="popup-text"><a href="@Html.Partial("_LoginPartial")"></a></li>
+                        <li data-effect="mfp-move-from-top" class="popup-text">@Html.ActionLink("Create", "Create", "ADuser")"</li>
+
                     </ul>
+
                 </div>
             </div>
         </nav>

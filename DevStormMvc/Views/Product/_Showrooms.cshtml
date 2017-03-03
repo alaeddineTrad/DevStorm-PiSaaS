@@ -1,46 +1,41 @@
 ﻿@model IEnumerable<DevStormMvc.Models.ShowroomModel>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Adress.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Adress.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Phone)
-        </th>
-        
-        <th></th>
-    </tr>
+<div class="container">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.Adress.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.Adress.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.Phone)
-        </td>
-        
-        
-    </tr>
-}
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h4>All showrooms</h4>
+        </div>
+        <div class="col-lg-11">
+            <div class="gap gap-small"></div>
 
-</table>
+            <div class="box">
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Showroomer firrstname</th>
+                            <th>Showroomer lastname</th>
+                            <th>City</th>
+                            <th>Street</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Showroomer.FirstName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Showroomer.LastName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Showroomer.Adress.City)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Showroomer.Adress.Street)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Showroomer.Phone)</td>
+                        
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

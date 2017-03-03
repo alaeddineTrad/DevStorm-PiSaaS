@@ -93,9 +93,9 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Showroom/Delete/5
-        public ActionResult Delete(int idUser, int idProduct)
+        public ActionResult Delete(int id, int idProduct)
         {
-            Showroom c = (Showroom)serviceShowroom.GetBy2Id(idUser, idProduct);
+            Showroom c = (Showroom)serviceShowroom.GetBy2Id(id, idProduct);
             ShowroomModel cm = new ShowroomModel
             {
                 product=c.Product
@@ -105,13 +105,13 @@ namespace DevStormMvc.Controllers
 
         // POST: Showroom/Delete/5
         [HttpPost]
-        public ActionResult Delete(int idUser, int idProduct, ShowroomModel cm)
+        public ActionResult Delete(int id, int idProduct, ShowroomModel cm)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                serviceShowroom.Delete(serviceShowroom.GetBy2Id( idUser, idProduct));
+                serviceShowroom.Delete(serviceShowroom.GetBy2Id(id, idProduct));
                 serviceShowroom.Commit();
                 return RedirectToAction("Index");
             }

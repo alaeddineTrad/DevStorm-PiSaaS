@@ -4,128 +4,125 @@
     ViewBag.Title = "Details"; }
 
 <div class="container">
-        <div class="gap gap-small" ></div>
-        <div class="text-center">
-            <h1>@Html.DisplayFor(model => model.name)</h1>
-            <div class="gap gap-small"></div>
-        </div>
+    <div class="gap gap-small"></div>
+    <div class="text-center">
+        <h1>@Html.DisplayFor(model => model.name)</h1>
+        <div class="gap gap-small"></div>
+    </div>
 
-        <div class="row">
-                 <div class="col-md-6">
-                
-                       
-                     <div id="slider">
-                         <a href="#" class="control_next">>></a>
-                         <a href="#" class="control_prev"><</a>
-                         <ul>
-                             @foreach (var l in ViewBag.list)
-                             {
-                                  <li><img alt="Produit" src="@Url.Content(l)" width="500px" height="300px"/></li>
-                             }
+    <div class="row">
+        <div class="col-md-6">
+            <div id="slider">
+                <a href="#" class="control_next">>></a>
+                <a href="#" class="control_prev"><</a>
+                <ul>
+                    @foreach (var l in ViewBag.list)
+                    {
+                        <li><img alt="Produit" src="@Url.Content(l)" width="500px" height="300px" /></li>
+                    }
 
-                         </ul>
-                     </div>
-                    </div>
-
-                    @*<div>*@
-
-                    <div class="col-md-6">
-                        <div class="_box-highlight">
-                            <h3>Category : @Html.DisplayFor(model => model.category)</h3>
-                            <h3>Brand : @Html.DisplayFor(model => model.brand)</h3>
-                            <h3>Price : @Html.DisplayFor(model => model.price) DT</h3>
-                            <h3>Discount : -@Html.DisplayFor(model => model.discount) %</h3>
-                            <h3>Quantity : @Html.DisplayFor(model => model.quantity)</h3>
-                            <div class="gap gap-small"></div>
-                            <ul class="product-page-actions-list">
-                                <li>@Html.ActionLink("Edit", "Edit", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })</li>
-                                <li>@Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })</li>
-                            </ul>
-                            <div class="gap gap-small"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @*<div>*@
-
-            <div class="col-md-6">
-                <div class="_box-highlight">
-                    <h3>Category : @Html.DisplayFor(model => model.category)</h3>
-                    <h3>Brand : @Html.DisplayFor(model => model.brand)</h3>
-                    <h3>Price : @Html.DisplayFor(model => model.price) DT</h3>
-                    <h3>Discount : -@Html.DisplayFor(model => model.discount) %</h3>
-                    <h3>Quantity : @Html.DisplayFor(model => model.quantity)</h3>
-                    <div class="gap gap-small"></div>
-                    <ul class="product-page-actions-list">
-                        <li>@Html.ActionLink("Edit", "Edit", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })</li>
-                        <li>@Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })</li>
-                    </ul>
-                    <div class="gap gap-small"></div>
-                </div>
+                </ul>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="_box-highlight">
+                <div class="gap gap-small"></div>
+                <h3>Category : @Html.DisplayFor(model => model.category)</h3>
+                <h3>Brand : @Html.DisplayFor(model => model.brand)</h3>
+                <h3>Price : @Html.DisplayFor(model => model.price) DT</h3>
+                <h3>Discount : -@Html.DisplayFor(model => model.discount) %</h3>
+                <h3>Quantity : @Html.DisplayFor(model => model.quantity)</h3>
+                <div class="gap gap-small"></div>
+                <ul class="product-page-actions-list">
+                    <li>@Html.ActionLink("Edit", "Edit", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })</li>
+                    <li>@Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })</li>
+                </ul>
+                <div class="gap gap-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
     <div style="font-family:Arial">
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-        <h2>Comments</h2>
+
+        <div class="text-center">
+            <h2>Feedbacks on this product</h2>
+            <div class="gap gap-small"></div>
+            <div>
+            @Html.ActionLink("Add comment", "Create", "Comment", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+                </div>
+            @Ajax.ActionLink("All", "All", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+               {
+                   HttpMethod = "GET",
+                   UpdateTargetId = "divComments",
+                   InsertionMode = InsertionMode.Replace
+               })
+                        <span style="color:blue">|</span>
+
+            @Ajax.ActionLink("Last", "Last", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+               {
+                   HttpMethod = "GET",
+                   UpdateTargetId = "divComments",
+                   InsertionMode = InsertionMode.Replace
+               })
+            <div id="divComments"></div>
+        </div>
+    </div>
+
+    <hr>      
+
+    <div style="font-family:Arial">
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
         
-@Ajax.ActionLink("All", "All", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
-{
-
-    HttpMethod = "GET",
-    UpdateTargetId = "divComments",
-    InsertionMode = InsertionMode.Replace
-})
-        <span style="color:blue">|</span>
-@Ajax.ActionLink("Last", "Last", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
-{
-    HttpMethod = "GET",
-    UpdateTargetId = "divComments",
-    InsertionMode = InsertionMode.Replace
-})
-        <div id="divComments">
-
+        <div class="text-center">
+            <h2>Rates on this product</h2>
+            <div class="gap gap-small"></div>
+            @Html.ActionLink("Add rate", "Create", "Rate", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+            <div></div>
+            @Ajax.ActionLink("AllRate", "AllRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+                {
+                   HttpMethod = "GET",
+                   UpdateTargetId = "divRates",
+                   InsertionMode = InsertionMode.Replace
+                })
+           @*<span style="color:blue">|</span>*@
+           @*@ @Ajax.ActionLink("AvgRate", "AvgRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "divRates",
+                InsertionMode = InsertionMode.Replace
+            })*@
+            <div id="divRates"></div>
         </div>
     </div>
-<div style="font-family:Arial">
+
+    <hr>
+    <div style="font-family:Arial">
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-        <h2>Rates</h2>
 
-@Ajax.ActionLink("AllRate", "AllRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
-{   HttpMethod = "GET",
-    UpdateTargetId = "divRates",
-    InsertionMode = InsertionMode.Replace
-})
-@*<span style="color:blue">|</span>
-@Ajax.ActionLink("AvgRate", "AvgRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
-{
-    HttpMethod = "GET",
-    UpdateTargetId = "divRates",
-    InsertionMode = InsertionMode.Replace
-})*@
-<div id="divRates">
-
-        </div>
-<div style="font-family:Arial">
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<h2>Showrooms</h2>
-
-@Ajax.ActionLink("AllShowrooms", "AllShowrooms", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
-{
-    HttpMethod = "GET",
-    UpdateTargetId = "divShow",
-    InsertionMode = InsertionMode.Replace
-})
-<div id="divShow">
-</div>
+        <div class="text-center">
+            <h2>Showrooms of this product</h2>
+            <div class="gap gap-small"></div>
+            @Html.ActionLink("Add showroom", "Create", "Showroom", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+            <div></div>
+                    
+             @Ajax.ActionLink("AllShowrooms", "AllShowrooms", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "divShow",
+                InsertionMode = InsertionMode.Replace
+            })
+             <div id="divShow"></div>
+         </div>
     </div>
 
-    </div>
+    @*</div>*@
 
-@*</div>*@
-   
     @*<dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.name)
@@ -184,11 +181,12 @@
             </dd>
 
         </dl>*@
- 
+
     @*<p>
             @Html.ActionLink("Edit", "Edit", new {  id = Model.productId  }) |
             @Html.ActionLink("Back to List", "Index")
         </p>*@
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

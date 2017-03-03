@@ -4,52 +4,73 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowroomerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Location.Longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Adress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Showroomer.Phone)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowroomerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.Adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Showroomer.Phone)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { idUser = item.ShowroomerId, idProduct = item.ProductId })
-        </td>
-    </tr>
-}
 
-</table>
+
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h2>Showrooms list </h2>
+            <div class="gap gap-small"></div>
+        </div>
+        <div class="box">
+        <table class="table">
+            <tr>
+                <th>
+                    Showroom ID 
+                </th>
+                <th>
+                    Product ID 
+                </th>
+                <th>
+                    Showroomer Firstname  
+                </th>
+                <th>
+                    Showroomer Address 
+                </th>
+                <th>
+                    Showroomer Phone
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShowroomerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Showroomer.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Showroomer.Adress.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Showroomer.Phone)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ShowroomerId, idProduct = item.ProductId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+        
+                    </td>
+                </tr>
+            }
+
+        </table>
+            </div>
+        <div class="container">
+            <div class="gap gap-small"></div>
+            <div class="row row-col-gap">
+                <div class="text-center">
+                    @Html.ActionLink("Create New", "Create", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })
+                    @Html.ActionLink("Back to products", "Index", "Product", "", htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>

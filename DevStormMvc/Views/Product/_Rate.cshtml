@@ -1,33 +1,36 @@
 ﻿@model IEnumerable<DevStormMvc.Models.RateModel>
-<table class="table">
-    <tr>
-    
-        <th>
-            @Html.DisplayNameFor(model => model.mark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user.LastName)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
 
-@foreach (var item in Model) {
-    <tr>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.mark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.LastName)
-        </td>
-       
-    </tr>
-}
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h4>All rates</h4>
+        </div>
+        <div class="col-lg-11">
+            <div class="gap gap-small"></div>
 
-</table>
+            <div class="box">
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Mark</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.mark)</td>
+                            <td>@Html.DisplayFor(modelItem => item.user.FirstName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.user.LastName)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

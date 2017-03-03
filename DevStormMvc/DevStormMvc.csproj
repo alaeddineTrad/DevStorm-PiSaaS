@@ -392,7 +392,6 @@
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\Comment\_Comment.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
-    <Content Include="Views\Comment\Create11.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Voucher\Create.cshtml" />
     <Content Include="Views\Voucher\Index.cshtml" />
@@ -413,7 +412,6 @@
     <Content Include="Views\Product\_Showrooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Content Include="Views\ADUser\Details.cshtml" />
     <Content Include="Views\ADUser\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
@@ -430,7 +428,6 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Image\" />
-    <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
