@@ -21,7 +21,7 @@ namespace DevStormMvc.Controllers
             foreach(var item in l)
             {
                 cr.Add(new CommentReviewModel{
-                    commentreviewId=item.CommentReviewId,
+                    //commentreviewId=item.CommentReviewId,
                     date=item.Date,
                     text=item.Text
                     
@@ -42,7 +42,7 @@ namespace DevStormMvc.Controllers
             foreach (var item in l)
             {
                 cr.Add(new CommentReviewModel
-                {   commentreviewId=item.CommentReviewId,
+                {   //commentreviewId=item.CommentReviewId,
                     date = item.Date,
                     text = item.Text
                      });
@@ -61,7 +61,7 @@ namespace DevStormMvc.Controllers
         {
             CommentReview cr = new CommentReview
             {
-                CommentReviewId = CRM.commentreviewId,
+                //CommentReviewId = CRM.commentreviewId,
                 Date = DateTime.Now,
                 Text = CRM.text
             };

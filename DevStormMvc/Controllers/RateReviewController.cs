@@ -21,7 +21,7 @@ namespace DevStormMvc.Controllers
             foreach(var item in l)
             {
                 rm.Add(new RateReviewModel{
-                    ratereviewId=item.RateReviewId,
+                    //ratereviewId=item.RateReviewId,
                     Buyer=item.Buyer,
                     mark=item.Mark,
                     Showroomer=item.Showroomer
@@ -49,7 +49,7 @@ namespace DevStormMvc.Controllers
         {
             RateReview rr = new RateReview
 
-            {   RateReviewId=RRM.ratereviewId,
+            {   //RateReviewId=RRM.ratereviewId,
                 Mark = RRM.mark,
 
                 
@@ -74,7 +74,7 @@ namespace DevStormMvc.Controllers
             RateReview r = (RateReview)serviceRateReview.GetById(id);
             RateReviewModel rm = new RateReviewModel
             {
-                ratereviewId = r.RateReviewId,
+                //ratereviewId = r.RateReviewId,
                 Buyer = r.Buyer,
                 mark = r.Mark,
                 Showroomer = r.Showroomer
@@ -93,7 +93,7 @@ namespace DevStormMvc.Controllers
                 // TODO: Add update logic here
                 RateReview r = (RateReview)serviceRateReview.GetById(id);
                 r.Mark = rm.mark;
-                r.RateReviewId = rm.ratereviewId;
+             //   r.RateReviewId = rm.ratereviewId;
                 r.Buyer = rm.Buyer;
                 r.Showroomer = rm.Showroomer;
                 return RedirectToAction("Index");
@@ -110,7 +110,7 @@ namespace DevStormMvc.Controllers
             RateReview r = (RateReview)serviceRateReview.GetById(id);
             RateReviewModel rm = new RateReviewModel
             {
-                ratereviewId = r.RateReviewId,
+                //ratereviewId = r.RateReviewId,
                 Buyer = r.Buyer,
                 mark = r.Mark,
                 Showroomer = r.Showroomer
