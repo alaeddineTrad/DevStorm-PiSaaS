@@ -1,0 +1,102 @@
+﻿@model IEnumerable<DevStormMvc.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <h2>Index</h2>
+        
+        @*<input style="float:right;margin-right:15px" ; type="submit" value="Create" class="btn btn-success" />
+        @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.brand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tva)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.discount)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tva)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.discount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.productId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Create New", "Create", "", htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+
+        <div style="font-family:Arial">
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+            <h2>Comments</h2>
+            @Ajax.ActionLink("All", "All", new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           UpdateTargetId = "divComments",
+           InsertionMode = InsertionMode.Replace
+       })
+            <span style="color:blue">|</span>
+            @Ajax.ActionLink("Last", "Last", new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           UpdateTargetId = "divComments",
+           InsertionMode = InsertionMode.Replace
+       })
+            <div id="divComments">
+
+            </div>
+        </div>
+
+    </div>
+</div>

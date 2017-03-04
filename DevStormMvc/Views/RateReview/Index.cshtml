@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DevStormMvc.Models.RateReviewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ratereviewId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ratereviewId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mark)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ratereviewId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ratereviewId })
+        </td>
+    </tr>
+}
+
+</table>

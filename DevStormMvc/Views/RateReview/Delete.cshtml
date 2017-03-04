@@ -1,0 +1,34 @@
+﻿@model DevStormMvc.Models.RateReviewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>Rate Review</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ratereviewId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ratereviewId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mark)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ratereviewId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
