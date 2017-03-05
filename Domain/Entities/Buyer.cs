@@ -12,10 +12,7 @@ namespace Domain.Entities
         public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
 
-        public Buyer() : base()
-        {
-
-        }
+      
         public string DeliveryAddress
         {
             get

@@ -12,12 +12,9 @@ namespace Data.Configuration
     {
         public UserConfiguration()
         {
-
             Map<Showroomer>(b => b.ToTable("Showroomer"));
             Map<Buyer>(ch => ch.ToTable("Buyer"));
             Map<User>(prod => prod.ToTable("User"));
-
-            
         }
     }
 }

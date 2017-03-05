@@ -67,31 +67,20 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201703050833469_v1.cs" />
-    <Compile Include="Migrations\201703050833469_v1.Designer.cs">
-      <DependentUpon>201703050833469_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703050912504_v2.cs" />
-    <Compile Include="Migrations\201703050912504_v2.Designer.cs">
-      <DependentUpon>201703050912504_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703050931082_v3.cs" />
-    <Compile Include="Migrations\201703050931082_v3.Designer.cs">
-      <DependentUpon>201703050931082_v3.cs</DependentUpon>
-	  </Compile>
-    <Compile Include="Migrations\201703042003075_v1.cs" />
-    <Compile Include="Migrations\201703042003075_v1.Designer.cs">
-      <DependentUpon>201703042003075_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703041927520_v3.cs" />
-    <Compile Include="Migrations\201703041927520_v3.Designer.cs">
-      <DependentUpon>201703041927520_v3.cs</DependentUpon>
+    <Compile Include="Migrations\201703051652077_v1.cs" />
+    <Compile Include="Migrations\201703051652077_v1.Designer.cs">
+      <DependentUpon>201703051652077_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="obj\Debug\Data.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,21 +90,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703050833469_v1.resx">
-      <DependentUpon>201703050833469_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703050912504_v2.resx">
-      <DependentUpon>201703050912504_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703050931082_v3.resx">
-      <DependentUpon>201703050931082_v3.cs</DependentUpon>
-	</EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703042003075_v1.resx">
-      <DependentUpon>201703042003075_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703041927520_v3.resx">
-      <DependentUpon>201703041927520_v3.cs</DependentUpon>
-
+    <Content Include="obj\Debug\Data.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703051652077_v1.resx">
+      <DependentUpon>201703051652077_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

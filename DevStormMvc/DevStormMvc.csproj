@@ -55,6 +55,7 @@
       <HintPath>..\packages\System.DirectoryServices.4.0.0\lib\System.DirectoryServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -182,6 +183,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ADUserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -199,12 +201,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="helper\ExtensionMethode.cs" />
+    <Compile Include="Identity Management\ADCrud.cs" />
+    <Compile Include="Identity Management\ADMethodsAccountManagement.cs" />
     <Compile Include="Identity Management\DirectoryAttributes.cs" />
     <Compile Include="Identity Management\LdapAuthentication.cs" />
     <Compile Include="Im.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ADUserModel.cs" />
     <Compile Include="Models\BuyerModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\CommentReviewModel.cs" />
@@ -234,6 +239,7 @@
     <Content Include="bin\Data.dll" />
     <Content Include="bin\Data.pdb" />
     <Content Include="bin\DevStormMvc.dll" />
+    <Content Include="bin\DevStormMvc.dll.config" />
     <Content Include="bin\DevStormMvc.pdb" />
     <Content Include="bin\Domain.dll" />
     <Content Include="bin\Domain.pdb" />
@@ -276,14 +282,18 @@
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\Services.dll" />
     <Content Include="bin\Services.pdb" />
     <Content Include="bin\ServicesSpec.dll" />
     <Content Include="bin\ServicesSpec.pdb" />
+    <Content Include="bin\System.DirectoryServices.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.Formatting.xml" />
     <Content Include="bin\System.Web.Helpers.dll" />
@@ -323,12 +333,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
+    <Content Include="obj\Debug\DevStormMvc.csproj.FileListAbsolute.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="bin\DevStormMvc.dll.config" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\DevStormMvc.csprojResolveAssemblyReference.cache" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -406,9 +415,12 @@
     <Content Include="Views\Voucher\Details.cshtml" />
     <Content Include="Views\Voucher\Edit.cshtml" />
     <Content Include="Views\Voucher\Delete.cshtml" />
+    <Content Include="Views\ADUser\Create.cshtml" />
+    <Content Include="Views\ADUser\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
