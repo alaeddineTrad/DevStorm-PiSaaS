@@ -198,6 +198,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="helper\ExtensionMethode.cs" />
     <Compile Include="Identity Management\DirectoryAttributes.cs" />
     <Compile Include="Identity Management\LdapAuthentication.cs" />
     <Compile Include="Im.cs">
@@ -398,12 +399,16 @@
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Voucher\Create.cshtml" />
+    <Content Include="Views\Voucher\Index.cshtml" />
+    <Content Include="Views\Voucher\Details.cshtml" />
+    <Content Include="Views\Voucher\Edit.cshtml" />
+    <Content Include="Views\Voucher\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
-    <Folder Include="Views\Voucher\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

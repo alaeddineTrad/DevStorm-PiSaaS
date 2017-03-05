@@ -93,6 +93,7 @@ namespace DevStormMvc.Controllers
                 // TODO: Add update logic here
                 RateReview r = (RateReview)serviceRateReview.GetById(id);
                 r.Mark = rm.mark;
+
               //  r.RateReviewId = rm.ratereviewId;
                 r.Buyer = rm.Buyer;
                 r.Showroomer = rm.Showroomer;
