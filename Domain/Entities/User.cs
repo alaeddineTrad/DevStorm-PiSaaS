@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.ComplexType;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Domain.Entities
 {
     public class User 
     {
+        [Key]
         private int userId;
         private string userName;
         private string password;
@@ -22,10 +24,7 @@ namespace Domain.Entities
         public virtual ICollection<Interaction> Interactions { get; set; }
        
 
-        public User()
-        {
-
-        }
+       
         public int UserId
         {
             get
