@@ -1,74 +1,106 @@
 ﻿@model DevStormMvc.Models.ProductModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Details"; }
+
+<div class="container">
+        <div class="gap gap-small" ></div>
+        <div class="text-center">
+            <h1>@Html.DisplayFor(model => model.name)</h1>
+            <div class="gap gap-small"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-page-product-wrap jqzoom-stage jqzoom-stage-lg">
+                    @*//image*@
+                </div>
+            </div>
+            @*<div>*@
+
+            <div class="col-md-6">
+                <div class="_box-highlight">
+                    <h3>Category : @Html.DisplayFor(model => model.category)</h3>
+                    <h3>Brand : @Html.DisplayFor(model => model.brand)</h3>
+                    <h3>Price : @Html.DisplayFor(model => model.price) DT</h3>
+                    <h3>Discount : -@Html.DisplayFor(model => model.discount) %</h3>
+                    <h3>Quantity : @Html.DisplayFor(model => model.quantity)</h3>
+                    <div class="gap gap-small"></div>
+                    <ul class="product-page-actions-list">
+                        <li>@Html.ActionLink("Edit", "Edit", new { id = Model.productId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })</li>
+                        <li>@Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })</li>
+                    </ul>
+                    <div class="gap gap-small"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+@*</div>*@
+   
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tva)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tva)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.category)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.category)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.discount)
+            </dd>
+
+        </dl>*@
+ 
+    @*<p>
+            @Html.ActionLink("Edit", "Edit", new {  id = Model.productId  }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>ProductModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.brand)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.brand)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.tva)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tva)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.quantity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.quantity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.discount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.discount)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.productId  }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

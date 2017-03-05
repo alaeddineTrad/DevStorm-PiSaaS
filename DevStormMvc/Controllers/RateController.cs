@@ -38,7 +38,7 @@ namespace DevStormMvc.Controllers
             Rate r = new Rate
 
             {
-                
+                //RateId = RM.rateId,
                 Mark = RM.mark
 
 

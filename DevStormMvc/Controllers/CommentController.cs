@@ -40,6 +40,7 @@ namespace DevStormMvc.Controllers
             {
                 cr.Add(new CommentModel
                 {
+                    //commentId = item.CommentId,
                     date = item.Date,
                     text = item.Text
                 });
@@ -69,6 +70,7 @@ namespace DevStormMvc.Controllers
                 InteractionId =CM.InteractionId,
                 ProductId=CM.ProductId,
                 UserId=CM.UserId,
+                //CommentId = CM.commentId,
                 Date = DateTime.Now,
                 Text = CM.text
                 
