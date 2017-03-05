@@ -13,9 +13,9 @@ namespace Data.Configuration
             Map<Comment>(b => b.ToTable("Comment"));
             Map<Rate>(ch => ch.ToTable("Rate"));
             Map<Interaction>(prod => prod.ToTable("Interaction"));
-            HasKey(a => new { a.UserId, a.ProductId });
-            HasRequired(a => a.Product).WithMany(a => a.Interactions).HasForeignKey(a => a.ProductId);
-            HasRequired(a => a.User).WithMany(a => a.Interactions).HasForeignKey(a => a.UserId);
+            HasKey(a => new { a.InteractionId,a.UserId, a.ProductId });
+            HasRequired(a => a.Product).WithMany(a => a.Interactions).HasForeignKey(a => a.ProductId).WillCascadeOnDelete(true);
+            HasRequired(a => a.User).WithMany(a => a.Interactions).HasForeignKey(a => a.UserId).WillCascadeOnDelete(true);
             
         }
     }

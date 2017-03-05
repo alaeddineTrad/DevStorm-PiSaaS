@@ -394,9 +394,10 @@
     <Content Include="Views\Shared\_showroomer.cshtml" />
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\Comment\_Comment.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Comment\Delete.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

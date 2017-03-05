@@ -11,14 +11,14 @@ namespace Data.Migrations
                 "dbo.Review",
                 c => new
                     {
-                        ShowroomerId = c.Int(nullable: false),
                         BuyerId = c.Int(nullable: false),
+                        ShowroomerId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ShowroomerId, t.BuyerId })
+                .PrimaryKey(t => new { t.BuyerId, t.ShowroomerId })
                 .ForeignKey("dbo.Buyer", t => t.BuyerId)
                 .ForeignKey("dbo.Showroomer", t => t.ShowroomerId)
-                .Index(t => t.ShowroomerId)
-                .Index(t => t.BuyerId);
+                .Index(t => t.BuyerId)
+                .Index(t => t.ShowroomerId);
             
             CreateTable(
                 "dbo.User",
@@ -42,10 +42,11 @@ namespace Data.Migrations
                 "dbo.Interaction",
                 c => new
                     {
+                        InteractionId = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.UserId, t.ProductId })
+                .PrimaryKey(t => new { t.InteractionId, t.UserId, t.ProductId })
                 .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
@@ -139,53 +140,53 @@ namespace Data.Migrations
                 "dbo.CommentReview",
                 c => new
                     {
-                        ShowroomerId = c.Int(nullable: false),
                         BuyerId = c.Int(nullable: false),
+                        ShowroomerId = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Text = c.String(),
                     })
-                .PrimaryKey(t => new { t.ShowroomerId, t.BuyerId })
-                .ForeignKey("dbo.Review", t => new { t.ShowroomerId, t.BuyerId })
-                .Index(t => new { t.ShowroomerId, t.BuyerId });
+                .PrimaryKey(t => new { t.BuyerId, t.ShowroomerId })
+                .ForeignKey("dbo.Review", t => new { t.BuyerId, t.ShowroomerId })
+                .Index(t => new { t.BuyerId, t.ShowroomerId });
             
             CreateTable(
                 "dbo.Comment",
                 c => new
                     {
+                        InteractionId = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
-                        CommentId = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Text = c.String(),
                     })
-                .PrimaryKey(t => new { t.UserId, t.ProductId })
-                .ForeignKey("dbo.Interaction", t => new { t.UserId, t.ProductId })
-                .Index(t => new { t.UserId, t.ProductId });
+                .PrimaryKey(t => new { t.InteractionId, t.UserId, t.ProductId })
+                .ForeignKey("dbo.Interaction", t => new { t.InteractionId, t.UserId, t.ProductId })
+                .Index(t => new { t.InteractionId, t.UserId, t.ProductId });
             
             CreateTable(
                 "dbo.RateReview",
                 c => new
                     {
-                        ShowroomerId = c.Int(nullable: false),
                         BuyerId = c.Int(nullable: false),
+                        ShowroomerId = c.Int(nullable: false),
                         Mark = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ShowroomerId, t.BuyerId })
-                .ForeignKey("dbo.Review", t => new { t.ShowroomerId, t.BuyerId })
-                .Index(t => new { t.ShowroomerId, t.BuyerId });
+                .PrimaryKey(t => new { t.BuyerId, t.ShowroomerId })
+                .ForeignKey("dbo.Review", t => new { t.BuyerId, t.ShowroomerId })
+                .Index(t => new { t.BuyerId, t.ShowroomerId });
             
             CreateTable(
                 "dbo.Rate",
                 c => new
                     {
+                        InteractionId = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
                         Mark = c.Int(nullable: false),
-                        RateId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.UserId, t.ProductId })
-                .ForeignKey("dbo.Interaction", t => new { t.UserId, t.ProductId })
-                .Index(t => new { t.UserId, t.ProductId });
+                .PrimaryKey(t => new { t.InteractionId, t.UserId, t.ProductId })
+                .ForeignKey("dbo.Interaction", t => new { t.InteractionId, t.UserId, t.ProductId })
+                .Index(t => new { t.InteractionId, t.UserId, t.ProductId });
             
             CreateTable(
                 "dbo.Showroomer",
@@ -217,10 +218,10 @@ namespace Data.Migrations
         {
             DropForeignKey("dbo.Buyer", "UserId", "dbo.User");
             DropForeignKey("dbo.Showroomer", "UserId", "dbo.User");
-            DropForeignKey("dbo.Rate", new[] { "UserId", "ProductId" }, "dbo.Interaction");
-            DropForeignKey("dbo.RateReview", new[] { "ShowroomerId", "BuyerId" }, "dbo.Review");
-            DropForeignKey("dbo.Comment", new[] { "UserId", "ProductId" }, "dbo.Interaction");
-            DropForeignKey("dbo.CommentReview", new[] { "ShowroomerId", "BuyerId" }, "dbo.Review");
+            DropForeignKey("dbo.Rate", new[] { "InteractionId", "UserId", "ProductId" }, "dbo.Interaction");
+            DropForeignKey("dbo.RateReview", new[] { "BuyerId", "ShowroomerId" }, "dbo.Review");
+            DropForeignKey("dbo.Comment", new[] { "InteractionId", "UserId", "ProductId" }, "dbo.Interaction");
+            DropForeignKey("dbo.CommentReview", new[] { "BuyerId", "ShowroomerId" }, "dbo.Review");
             DropForeignKey("dbo.Interaction", "UserId", "dbo.User");
             DropForeignKey("dbo.Interaction", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Vouchers", "UserId", "dbo.Showroomer");
@@ -234,10 +235,10 @@ namespace Data.Migrations
             DropForeignKey("dbo.Images", "ProductId", "dbo.Products");
             DropIndex("dbo.Buyer", new[] { "UserId" });
             DropIndex("dbo.Showroomer", new[] { "UserId" });
-            DropIndex("dbo.Rate", new[] { "UserId", "ProductId" });
-            DropIndex("dbo.RateReview", new[] { "ShowroomerId", "BuyerId" });
-            DropIndex("dbo.Comment", new[] { "UserId", "ProductId" });
-            DropIndex("dbo.CommentReview", new[] { "ShowroomerId", "BuyerId" });
+            DropIndex("dbo.Rate", new[] { "InteractionId", "UserId", "ProductId" });
+            DropIndex("dbo.RateReview", new[] { "BuyerId", "ShowroomerId" });
+            DropIndex("dbo.Comment", new[] { "InteractionId", "UserId", "ProductId" });
+            DropIndex("dbo.CommentReview", new[] { "BuyerId", "ShowroomerId" });
             DropIndex("dbo.Vouchers", new[] { "UserId" });
             DropIndex("dbo.Media", new[] { "UserId" });
             DropIndex("dbo.Showrooms", new[] { "ProductId" });
@@ -247,8 +248,8 @@ namespace Data.Migrations
             DropIndex("dbo.Images", new[] { "ProductId" });
             DropIndex("dbo.Interaction", new[] { "ProductId" });
             DropIndex("dbo.Interaction", new[] { "UserId" });
-            DropIndex("dbo.Review", new[] { "BuyerId" });
             DropIndex("dbo.Review", new[] { "ShowroomerId" });
+            DropIndex("dbo.Review", new[] { "BuyerId" });
             DropTable("dbo.Buyer");
             DropTable("dbo.Showroomer");
             DropTable("dbo.Rate");

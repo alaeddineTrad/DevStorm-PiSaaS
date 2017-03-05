@@ -21,7 +21,7 @@ namespace DevStormMvc.Controllers
             foreach(var item in l)
             {
                 cr.Add(new CommentReviewModel{
-                    commentreviewId=item.CommentReviewId,
+                    
                     date=item.Date,
                     text=item.Text
                     
@@ -42,7 +42,7 @@ namespace DevStormMvc.Controllers
             foreach (var item in l)
             {
                 cr.Add(new CommentReviewModel
-                {   commentreviewId=item.CommentReviewId,
+                {   
                     date = item.Date,
                     text = item.Text
                      });
@@ -61,7 +61,7 @@ namespace DevStormMvc.Controllers
         {
             CommentReview cr = new CommentReview
             {
-                CommentReviewId = CRM.commentreviewId,
+                
                 Date = DateTime.Now,
                 Text = CRM.text
             };
@@ -96,12 +96,12 @@ namespace DevStormMvc.Controllers
 
         // POST: CommentReview/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, CommentReviewModel cm)
+        public ActionResult Edit(int idUser,int idProduct, CommentReviewModel cm)
         {
             try
             {
                 // TODO: Add update logic here
-                CommentReview c = (CommentReview)serviceCommentReview.GetById(id);
+                CommentReview c = (CommentReview)serviceCommentReview.GetBy2Id(idUser,idProduct);
                 c.Date = DateTime.Now;
                 c.Text = cm.text;
                 c.Buyer = cm.Buyer;
@@ -119,9 +119,7 @@ namespace DevStormMvc.Controllers
         {
             CommentReview c = (CommentReview)serviceCommentReview.GetById(id);
             CommentReviewModel cm = new CommentReviewModel
-            {
-                
-                Buyer = c.Buyer,
+            {   Buyer = c.Buyer,
                 Showroomer = c.Showroomer,
                 date = c.Date,
                 text = c.Text

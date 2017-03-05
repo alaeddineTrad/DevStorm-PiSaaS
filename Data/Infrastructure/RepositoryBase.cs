@@ -58,9 +58,18 @@ namespace DevStormMvc.Data.Infrastructure
         {
             return dbset.Find(id);
         }
+
         public virtual T GetById(string id)
         {
             return dbset.Find(id);
+        }
+        public virtual T GetBy2Id(long idUser, long idProduct)
+        {
+            return dbset.Find(idUser,idProduct);
+        }
+        public virtual T GetBy3Id(long id,long idUser, long idProduct)
+        {
+            return dbset.Find(id,idUser, idProduct);
         }
         public virtual IEnumerable<T> GetAll()
         {

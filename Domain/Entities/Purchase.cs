@@ -14,6 +14,7 @@ namespace Domain.Entities
 
         private DateTime date;
         private float total;
+       
         //[Key]
         //[Column(Order = 1)]
         public int UserId { get; set; }

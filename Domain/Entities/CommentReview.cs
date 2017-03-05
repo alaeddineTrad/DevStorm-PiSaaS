@@ -14,9 +14,8 @@ namespace Domain.Entities
 
         public CommentReview() : base()
         {
-
         }
-        
+         
         public DateTime Date
         {
             get

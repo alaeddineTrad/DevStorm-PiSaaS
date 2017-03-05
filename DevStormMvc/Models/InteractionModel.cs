@@ -8,7 +8,7 @@ namespace DevStormMvc.Models
 {
     public class InteractionModel
     {
-       
+        public int InteractionId { get; set; }
         public int UserId { get; set; }
         public int ProductId { get; set; }
         public User user { get; set; }

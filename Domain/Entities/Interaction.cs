@@ -12,6 +12,8 @@ namespace Domain.Entities
     {
         //[Key]
         //[Column(Order=1)]
+        
+        public int InteractionId { get; set; }
         public int UserId { get; set; }
         //[Key]
         //[Column(Order = 2)]

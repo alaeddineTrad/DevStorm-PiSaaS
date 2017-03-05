@@ -12,15 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.commentId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.date)
         </th>
         <th>
@@ -31,15 +22,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.commentId)
-        </td>
+      
         <td>
             @Html.DisplayFor(modelItem => item.date)
         </td>
@@ -47,9 +30,8 @@
             @Html.DisplayFor(modelItem => item.text)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId })
         </td>
     </tr>
 }

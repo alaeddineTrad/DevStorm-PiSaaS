@@ -22,7 +22,9 @@ namespace DevStormMvc.Controllers
             {
                 cr.Add(new CommentModel
                 {
-                    
+                    InteractionId=item.InteractionId,
+                    UserId =item.UserId,
+                    ProductId=item.ProductId,
                     date = item.Date,
                     text = item.Text
 
@@ -38,7 +40,6 @@ namespace DevStormMvc.Controllers
             {
                 cr.Add(new CommentModel
                 {
-                    commentId = item.CommentId,
                     date = item.Date,
                     text = item.Text
                 });
@@ -63,9 +64,11 @@ namespace DevStormMvc.Controllers
         public ActionResult Create(CommentModel CM)
         {
             Comment c = new Comment
-            {   ProductId=CM.ProductId,
+            {
+
+                InteractionId =CM.InteractionId,
+                ProductId=CM.ProductId,
                 UserId=CM.UserId,
-                CommentId = CM.commentId,
                 Date = DateTime.Now,
                 Text = CM.text
                 
@@ -84,32 +87,29 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Comment/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,int idUser,int idProduct)
         {
-            Comment c = (Comment)serviceComment.GetById(id);
+            Comment c = (Comment)serviceComment.GetBy3Id(id,idUser,idProduct);
             CommentModel cm = new CommentModel
-            {
-                UserId=c.UserId,
-                product=c.Product,
+            {   InteractionId=c.InteractionId,
+                UserId = c.UserId,
+                ProductId =c.ProductId,
                 date = c.Date,
                 text = c.Text
-
             };
             return View(cm);
         }
 
         // POST: Comment/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, CommentModel cm)
+        public ActionResult Edit(int id,int idUser, int idProduct, CommentModel cm)
         {
             try
             {
                 // TODO: Add update logic here
-                Comment c = (Comment)serviceComment.GetById(id);
+                Comment c = (Comment)serviceComment.GetBy3Id(id,idUser,idProduct);
                 c.Date = DateTime.Now;
                 c.Text = cm.text;
-                c.User = cm.user;
-                c.Product = cm.product;
                 return RedirectToAction("Index");
             }
             catch
@@ -119,14 +119,11 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Comment/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int idUser, int idProduct)
         {
-            Comment c = (Comment)serviceComment.GetById(id);
+            Comment c = (Comment)serviceComment.GetBy3Id(id, idUser, idProduct);
             CommentModel cm = new CommentModel
-            {
-                user = c.User,
-                product = c.Product,
-                date = c.Date,
+            {   date = c.Date,
                 text = c.Text
 
             };
@@ -135,12 +132,12 @@ namespace DevStormMvc.Controllers
 
         // POST: Comment/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, CommentModel cm)
+        public ActionResult Delete(int id,int idUser, int idProduct, CommentModel cm)
         {
             try
             {
                 // TODO: Add delete logic here
-                serviceComment.Delete(serviceComment.GetById(id));
+                serviceComment.Delete(serviceComment.GetBy3Id(id, idUser, idProduct));
                 serviceComment.Commit();
                 return RedirectToAction("Index");
             }
