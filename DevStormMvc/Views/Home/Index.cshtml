@@ -2,30 +2,505 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="owl-carousel owl-loaded owl-nav-dots-inner" data-options='{"items":1,"loop":true}'>
+
+    <div class="owl-item">
+        <div class="slider-item" style="background-color:#252525;">
+            <div class="container">
+                <div class="slider-item-inner">
+                    <div class="slider-item-caption-left slider-item-caption-white">
+                        <h4 class="slider-item-caption-title">It's gym time!</h4>
+                        <p class="slider-item-caption-desc">Discover our sport products.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                    </div>
+                    <img class="slider-item-img-right" src="@Url.Content("~/Content/showroomer/img/test_slider/3.png")" alt="Image Alternative text" title="Image Title" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="owl-item">
+        <div class="slider-item" style="background-color:#cacaca;">
+            <div class="container">
+                <div class="slider-item-inner">
+                    <div class="slider-item-caption-left slider-item-caption-white">
+                        <h4 class="slider-item-caption-title" style="color:#252525">Tech lover ?!</h4>
+                        <p class="slider-item-caption-desc" style="color:#252525">Discover our tech products.</p><a class="btn btn-lg btn-ghost btn-black" href="#" style="color:#252525">Shop Now</a>
+                    </div>
+                    <img class="slider-item-img-right" src="@Url.Content("~/Content/showroomer/img/test_slider/1.png")" alt="Image Alternative text" title="Image Title" style="top: 60%; width: 56%;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="owl-item">
+        <div class="slider-item" style="background-color:#252525;">
+            <div class="container">
+                <div class="slider-item-inner">
+                    <div class="slider-item-caption-right slider-item-caption-white">
+                        <h4 class="slider-item-caption-title">Music Addict ?!</h4>
+                        <p class="slider-item-caption-desc">Discover our sport products.</p><a class="btn btn-lg btn-ghost btn-white" href="#" ">Shop Now</a>
+                    </div>
+                    <img class="slider-item-img-left" src="@Url.Content("~/Content/showroomer/img/test_slider/2.png")" alt="Image Alternative text" title="Image Title" style="transform:translateY(-50%) rotate(14deg); width: 55%;" />
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="container">
+    <div class="gap gap-small"></div>
+    <h3 class="widget-title-lg">Products of the week</h3>
+    <div class="row" data-gutter="15">
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#F5D02B;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-top-left">
+                    <h5 class="banner-title">Backpack Collection</h5>
+                    <p class="banner-desc">Don't Be Vague. Ask for Backpack .</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/1.png")" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: -32px;" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#252525;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-top-right">
+                    <h5 class="banner-title">Best 2015 Tablets</h5>
+                    <p class="banner-desc">Double the Pleasure, Double the Tablets.</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/2.png")" alt="Image Alternative text" title="Image Title" style="bottom: -22px; left: 0; width: 235px;" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#07B1D9;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-bottom-left">
+                    <h5 class="banner-title">Top Glasses</h5>
+                    <p class="banner-desc">My Goodness, My Glasses!</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/3.png")" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;" />
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="row" data-gutter="15">
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#FFFFFF;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-left">
+                    <h5 class="banner-title" style="color:#252525">Outsteanding Sound</h5>
+                    <p class="banner-desc" style="color:#252525">It's A Bit Of A Headphones.</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/7.png")" alt="Image Alternative text" title="Image Title" style="bottom: 0px; right: -20px;" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#68A042;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-left">
+                    <h5 class="banner-title">Top Gaming Equipment</h5>
+                    <p class="banner-desc">That Cybersport Feeling.</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/8.png")" alt="Image Alternative text" title="Image Title" style="bottom: 0px; right: -5px;" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#F0620E;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-left">
+                    <h5 class="banner-title">Pro Cameras 50% Off</h5>
+                    <p class="banner-desc">Capture Briliant Moments.</p>
+                    <p class="banner-shop-now">
+                        Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="@Url.Content("~/Content/showroomer/img/test_banner/9.png")" alt="Image Alternative text" title="Image Title" style="bottom: 0px; right: -10px; width: 180px;" />
+            </div>
+        </div>
     </div>
 </div>
+    <hr>
+<div class="container">
+    <div class="gap gap-small"></div>
+    <h3 class="widget-title-lg">Other products</h3>
+    <div class="row" data-gutter="15">
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/34.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/34-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">Samsung Galaxy Note 4 IV 4G FACTORY UNLOCKED Black or White</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$98</span>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/cameras/1.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/cameras/1-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">Nikon D5200 24.1 MP Digital SLR Camera - Black (Kit w/ 18-55 VR Lens)</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$68</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/laptops/3.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/laptops/3-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">Apple 11.6" MacBook Air Notebook Computer MJVM2LL/A (Early 2015)</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$145</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels">
+                    <li>-30%</li>
+                    <li>hot</li>
+                </ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/cameras/3.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/cameras/3-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">Nikon COOLPIX L840 Digital Camera, Red - Refurbished by Nikon U.S.A. #26486 B</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-old">$95</span><span class="product-caption-price-new">$67</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-gutter="15">
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/29.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/29-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">Apple iPhone 5s 16GB Factory Unlocked Smartphone Space Gray / Silver / Gold</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$59</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/35.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/35-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">LG G3 VS985 - 32GB - Verizon Smartphone - Metallic Black or Silk White - Great</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$96</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/32.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/32-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">LG G Flex D959 - 32GB - Titan Silver GSM Unlocked Android Smartphone (B)</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$70</span>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <img class="product-img-primary" src="@Url.Content("~/Content/showroomer/img/test_product/laptops/1.jpg")" alt="Image Alternative text" title="Image Title" />
+                    <img class="product-img-alt" src="@Url.Content("~/Content/showroomer/img/test_product/laptops/1-a.jpg")" alt="Image Alternative text" title="Image Title" />
+                </div>
+                <a class="product-link" href="#"></a>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li class="rated">
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                    <h5 class="product-caption-title">HP EliteBook 8460p 2.7GHz i7 8GB 160GB DVD Win 7 Pro 64 Laptop Computer CAM B</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-new">$53</span>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr>
+
+    <div class="container">
+        <h3 class="widget-title-lg">Shop by Category</h3>
+        <div class="gap gap-small"></div>
+        <div class="row row-sm-gap" data-gutter="15">
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/jewelry.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Jewelry</h5>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/tech.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Technology</h5>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/clothes.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Clothes</h5>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/ball.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Sports</h5>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/art.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Art & Design</h5>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a class="banner-category" href="#">
+                    <img class="banner-category-img" src="@Url.Content("~/Content/showroomer/img/test_icon/tools.png")" alt="Image Alternative text" title="Image Title" />
+                    <h5 class="banner-category-title">Tools</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row row-col-gap">
+        <div class="jumbotron">
+            <h1>ASP.NET</h1>
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+            <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>*@
+    @*</div>*@
+
+    <div class="gap gap-small"></div>
+    <div class="container">
+        <div class="text-center">
+
+            <a class="btn btn-info btn-lg "  href="#top">Back to top </a>
+        </div>
+    </div>
+

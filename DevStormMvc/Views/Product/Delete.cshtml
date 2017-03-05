@@ -4,78 +4,96 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ProductModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h3>Are you sure you want to delete @Html.DisplayFor(model => model.name) ?</h3>
+            <div>
+           
+                <hr />
+                @*<dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.name)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.brand)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.brand)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.brand)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.brand)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.price)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tva)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.price)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.tva)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.tva)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.category)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.tva)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.category)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.category)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.quantity)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.category)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.quantity)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.quantity)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.discount)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.quantity)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.discount)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.discount)
+                    </dt>
 
-    </dl>
+                    <dd>
+                        @Html.DisplayFor(model => model.discount)
+                    </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                </dl>*@
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+               
+
+                @using (Html.BeginForm())
+             {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+                            <input style="float:right;margin-right:402px" type="submit" value="Delete" class="btn btn-danger" />
+                        </div>
+                    </div>
+
+
+                    @*<div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>*@
+                }
+               
+            </div>
         </div>
-    }
-</div>
+    </div>
+   </div>

@@ -308,6 +308,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\showroomer\img\backgrounds\blue.png" />
     <Content Include="Content\showroomer\img\backgrounds\High_Trestle_Trail_Bridge_4k.jpg" />
+    <Content Include="Content\showroomer\img\backgrounds\light.png" />
     <Content Include="Content\showroomer\img\backgrounds\Noir_Dark_and_Stylish.jpg" />
     <Content Include="Content\showroomer\img\backgrounds\picResourcesSplitShire.jpg" />
     <Content Include="Content\showroomer\img\backgrounds\Simple-backgrounds-for-desktop-download.jpg" />
