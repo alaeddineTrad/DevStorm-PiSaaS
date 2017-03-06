@@ -20,7 +20,13 @@ namespace DevStormMvc.Identity_Management
             _adContext = adContext;
         }
 
-        public UserPrincipal GetUser(string userName, string userPassword)
+        public UserCredential(string userName, PrincipalContext adContext)
+        {
+            _userName = userName;
+            _adContext = adContext;
+        }
+
+        public UserPrincipal GetUser(string userName)
         {
             UserPrincipal user = UserPrincipal.FindByIdentity(_adContext, userName);
             return user;

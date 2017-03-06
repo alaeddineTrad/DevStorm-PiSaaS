@@ -33,6 +33,12 @@ namespace DevStormMvc.Identity_Management
             _userCredential = new UserCredential(userName, password,_adContext);
         }
 
+        public AccountServices(string username)
+        {
+            _adContext = AMAuthentication.getContext();
+            _userCredential = new UserCredential(username,_adContext);
+        }
+
         public bool ValidateCredentials()
         {
             return _adContext.ValidateCredentials(_userCredential._userName, _userCredential._password);
@@ -47,7 +53,7 @@ namespace DevStormMvc.Identity_Management
         /// <param name="email">He's email address</param>
         public void UpdateAdUser(string firstname, string lastname, string email)
         {
-            UserPrincipal user = _userCredential.GetUser(_userCredential._userName, _userCredential._password);
+            UserPrincipal user = _userCredential.GetUser(_userCredential._userName);
             user.GivenName = firstname;
             user.Surname = lastname;
             user.EmailAddress = email;
@@ -63,7 +69,7 @@ namespace DevStormMvc.Identity_Management
         {
             try
             {
-                _userCredential.GetUser(_userCredential._userName, _userCredential._password).SetPassword(newPassword);
+                _userCredential.GetUser(_userCredential._userName).SetPassword(newPassword);
                 message = "";
             }
             catch (Exception ex)
@@ -74,7 +80,7 @@ namespace DevStormMvc.Identity_Management
 
         public UserPrincipal ShowUser()
         {
-            return _userCredential.GetUser(_userCredential._userName, _userCredential._userName);
+            return _userCredential.GetUser(_userCredential._userName);
         }
 
     }

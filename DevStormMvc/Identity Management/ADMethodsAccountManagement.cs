@@ -17,8 +17,8 @@ namespace DevStormMvc.Identity_Management
         private string sDomain = "DEVSTORM";
         private string sDefaultOU = "OU=ZARA Users,DC=devstorm,DC=tn";
         private string sDefaultRootOU = "DC=devstorm,DC=tn";
-        private string sServiceUser = "Administrateur";
-        private string sServicePassword = "KingHolding2007.";
+        private string sServiceUser = "Administrator";
+        private string sServicePassword = "Devstorm/2016";
 
         #endregion
         #region Validate Methods
