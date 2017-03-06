@@ -19,7 +19,6 @@ namespace DevStormMvc.Identity_Management
             _password = password;
             _adContext = adContext;
         }
-
         public UserCredential(string userName, PrincipalContext adContext)
         {
             _userName = userName;

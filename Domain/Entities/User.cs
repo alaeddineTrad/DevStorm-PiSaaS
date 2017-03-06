@@ -18,7 +18,7 @@ namespace Domain.Entities
         private string firstName;
         private string lastName;
         private Address adress;
-        private int phone;
+        private string phone;
         private DateTime dateCreation;
         public virtual ICollection<Media> Medias { get; set; }
         public virtual ICollection<Interaction> Interactions { get; set; }
@@ -116,18 +116,7 @@ namespace Domain.Entities
             }
         }
 
-        public int Phone
-        {
-            get
-            {
-                return phone;
-            }
-
-            set
-            {
-                phone = value;
-            }
-        }
+       
 
         public DateTime DateCreation
         {
@@ -139,6 +128,19 @@ namespace Domain.Entities
             set
             {
                 dateCreation = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
             }
         }
     }

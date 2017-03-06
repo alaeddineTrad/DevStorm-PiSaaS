@@ -178,16 +178,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
@@ -207,19 +205,19 @@
     <Compile Include="Identity Management\AMAuthentication.cs" />
     <Compile Include="Identity Management\DirectoryAttributes.cs" />
     <Compile Include="Identity Management\LdapAuthentication.cs" />
+    <Compile Include="Identity Management\Login\AdAuthenticationService.cs" />
     <Compile Include="Identity Management\UserCredential.cs" />
     <Compile Include="Im.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ADUserLongModel.cs" />
     <Compile Include="Models\ADUserModel.cs" />
     <Compile Include="Models\BuyerModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\CommentReviewModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\InteractionModel.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MediaModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
@@ -234,7 +232,6 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -341,6 +338,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\DevStormMvc.csprojResolveAssemblyReference.cache" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -368,26 +366,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
@@ -418,9 +397,12 @@
     <Content Include="Views\Voucher\Details.cshtml" />
     <Content Include="Views\Voucher\Edit.cshtml" />
     <Content Include="Views\Voucher\Delete.cshtml" />
-    <Content Include="Views\ADUser\Create.cshtml" />
     <Content Include="Views\ADUser\Details.cshtml" />
     <Content Include="Views\ADUser\Edit.cshtml" />
+    <Content Include="Views\ADUser\Create.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -138,7 +138,7 @@
             <p>Welcome back, friend. Login to get started</p>
             <hr />
             <form>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>Email or Username</label>
                     <input class="form-control" type="text" />
                 </div>
@@ -151,7 +151,8 @@
                         <input class="i-check" type="checkbox" />Remeber Me
                     </label>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Sign In" />
+                <input class="btn btn-primary" type="submit" value="Sign In" />*@
+                
             </form>
             <div class="gap gap-small"></div>
             <ul class="list-inline">
@@ -776,6 +777,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right navbar-right-no-mar navbar-nav-lg">
                             <li>
+
                                 <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span>Hello, Sign in</span>Your Account</a>
                             </li>
                             <li class="dropdown">
@@ -1811,7 +1813,8 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">Sign In</a>
+                            
+                            <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>
                         </li>
                         <li>
                             <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text">Create Account</a>
