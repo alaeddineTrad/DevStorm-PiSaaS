@@ -15,6 +15,7 @@ namespace DevStormMvc.Models
         public float price { get; set; }
         public float tva { get; set; }
         public string category { get; set; }
+        public string ImageUrl { get; set; }
         public int quantity { get; set; }
         public float discount { get; set; }
         public List<Image> Images { get; set; }

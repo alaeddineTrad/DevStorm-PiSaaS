@@ -53,12 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServiceImage.cs" />
     <Compile Include="IServiceProduct.cs" />
     <Compile Include="IServiceShowRoomer.cs" />
     <Compile Include="IServiceVoucher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceComment.cs" />
     <Compile Include="ServiceCommentReview.cs" />
+    <Compile Include="ServiceImage.cs" />
     <Compile Include="ServiceProduct.cs" />
     <Compile Include="ServiceRate.cs" />
     <Compile Include="ServiceRateReview.cs" />
