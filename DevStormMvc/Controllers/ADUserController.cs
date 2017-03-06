@@ -13,7 +13,8 @@ namespace DevStormMvc.Controllers
     {
         // GET: ADUser
         ADCrud adc = new ADCrud();
-        ADMethodsAccountManagement Admethods = new ADMethodsAccountManagement();
+        AccountServices acs = new AccountServices("alaa");
+         ADMethodsAccountManagement Admethods = new ADMethodsAccountManagement();
         // GET: AD
         public ActionResult Index()
         {
@@ -51,11 +52,12 @@ namespace DevStormMvc.Controllers
                     u.Password = um.password1;
                     u.Email = um.email;
                     u.UserName = um.username;
+                    u.Phone =  um.phone;
                     try
                     {
                         // TODO: Add insert logic here
-                        adc.AddUser(u);
-                        Admethods.EnableUserAccount(u.UserName);
+                        acs.CreateNewUser(u.UserName, u.Password, u.FirstName, u.LastName, u.Email, u.Phone);
+                        
 
                         return RedirectToAction("Details");
                         // return View();
@@ -70,15 +72,23 @@ namespace DevStormMvc.Controllers
             return View();
         }
 
-        // GET: ADuser/Details/username
-        public ActionResult Details(string username)
+        // GET: ADuser/Details
+        public ActionResult Details()
         {
-            
-            var u= Admethods.GetUser(username);
 
-            ADUserModel um = new ADUserModel();
-            um.firstname = u.Name;
-            um.email = u.EmailAddress;
+            var u = acs.ShowUser();
+
+            ADUserLongModel um = new ADUserLongModel();
+            um.username = u.Name;
+            um.firstname =u.GivenName; 
+            um.email = u.EmailAddress ;
+            um.lastName = u.Surname;
+            um.phone = u.VoiceTelephoneNumber;
+            um.LastLogon =(DateTime) u.LastLogon;
+            if (acs.IsUserGroupMember(u.Name,"showroomer"))
+            {
+                um.Role = "showroomer";
+            }
             
             return View(um);
         }

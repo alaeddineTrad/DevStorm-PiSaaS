@@ -1,4 +1,4 @@
-﻿@model DevStormMvc.Models.ADUserModel
+﻿@model DevStormMvc.Models.ADUserLongModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ADUserModel</h4>
+    <h4>ADUserLongModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -35,27 +35,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.password1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.password1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.password2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.password2)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.email)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastLogon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastLogon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
         </dd>
 
     </dl>

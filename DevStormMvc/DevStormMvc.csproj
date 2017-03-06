@@ -201,14 +201,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="helper\ExtensionMethode.cs" />
+    <Compile Include="Identity Management\AccountServices.cs" />
     <Compile Include="Identity Management\ADCrud.cs" />
     <Compile Include="Identity Management\ADMethodsAccountManagement.cs" />
+    <Compile Include="Identity Management\AMAuthentication.cs" />
     <Compile Include="Identity Management\DirectoryAttributes.cs" />
     <Compile Include="Identity Management\LdapAuthentication.cs" />
+    <Compile Include="Identity Management\UserCredential.cs" />
     <Compile Include="Im.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ADUserLongModel.cs" />
     <Compile Include="Models\ADUserModel.cs" />
     <Compile Include="Models\BuyerModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
@@ -415,8 +419,8 @@
     <Content Include="Views\Voucher\Details.cshtml" />
     <Content Include="Views\Voucher\Edit.cshtml" />
     <Content Include="Views\Voucher\Delete.cshtml" />
-    <Content Include="Views\ADUser\Create.cshtml" />
     <Content Include="Views\ADUser\Details.cshtml" />
+    <Content Include="Views\ADUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
