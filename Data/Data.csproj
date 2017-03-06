@@ -67,6 +67,10 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.cs" />
+    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.Designer.cs">
+      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
+	</Compile>
     <Compile Include="Migrations\201703051652077_v1.cs" />
     <Compile Include="Migrations\201703051652077_v1.Designer.cs">
       <DependentUpon>201703051652077_v1.cs</DependentUpon>
@@ -94,6 +98,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703051543115_ImageEntityUpdate.resx">
+      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
+	</EmbeddedResource>
     <Content Include="obj\Debug\Data.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>

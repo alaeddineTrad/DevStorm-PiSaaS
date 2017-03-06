@@ -18,5 +18,19 @@ namespace ServicesSpec
         {
         }
 
+        public int getLastId()
+        {
+            return GetAll().Select(x => x.ProductId).Max();
+        }
+        public void testId()
+        {
+
+        }
+
+        public IEnumerable<Image> GetImageByProductId(int productId)
+        {
+            return UOW.GetRepository<Image>().GetAll().Where(x => x.ProductId == productId);
+        }
+
     }
 }

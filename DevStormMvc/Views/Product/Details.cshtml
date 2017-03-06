@@ -13,7 +13,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="product-page-product-wrap jqzoom-stage jqzoom-stage-lg">
-                    @*//image*@
+                   @foreach (var l in ViewBag.list)
+                   {
+                    <img alt="Produit" src="@Url.Content(l)"  />
+                   }
+                   <p></p>
                 </div>
             </div>
             @*<div>*@
