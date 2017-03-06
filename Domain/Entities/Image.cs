@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace Domain.Entities
     {
         private int imageId;
         private string name;
+        [Required]
+        [DataType(DataType.ImageUrl), Display(Name = "Image")]
         private string url;
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
