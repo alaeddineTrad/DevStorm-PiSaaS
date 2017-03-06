@@ -13,8 +13,8 @@ namespace Data.Configuration
         public ShowroomConfiguration()
         {
             HasKey(a => new { a.ShowroomerId, a.ProductId });
-            HasRequired(a => a.Showroomer).WithMany(a => a.Showrooms).HasForeignKey(a => a.ShowroomerId);
-            HasRequired(a => a.Product).WithMany(a => a.Showrooms).HasForeignKey(a => a.ProductId);
+            HasRequired(a => a.Showroomer).WithMany(a => a.Showrooms).HasForeignKey(a => a.ShowroomerId).WillCascadeOnDelete(true);
+            HasRequired(a => a.Product).WithMany(a => a.Showrooms).HasForeignKey(a => a.ProductId).WillCascadeOnDelete(true);
         }
     }
 }

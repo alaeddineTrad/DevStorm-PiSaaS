@@ -59,6 +59,16 @@ namespace Services
             //return _repository.GetById(id);
             return utwk.GetRepository<TEntity>().GetById(id);
         }
+        public virtual TEntity GetBy2Id(long idUser,long idProduct)
+        {
+            //return _repository.GetById(id);
+            return utwk.GetRepository<TEntity>().GetBy2Id(idUser,idProduct);
+        }
+        public virtual TEntity GetBy3Id(long id,long idUser, long idProduct)
+        {
+            //return _repository.GetById(id);
+            return utwk.GetRepository<TEntity>().GetBy3Id(id,idUser, idProduct);
+        }
 
         public virtual IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> filter = null)
         {

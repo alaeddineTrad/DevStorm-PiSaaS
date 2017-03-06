@@ -16,8 +16,8 @@ namespace Data.Configuration
             Map<RateReview>(ch => ch.ToTable("RateReview"));
             Map<Review>(prod => prod.ToTable("Review"));
             HasKey(a => new { a.BuyerId, a.ShowroomerId });
-            HasRequired(a => a.Buyer).WithMany(a => a.Reviews).HasForeignKey(a => a.BuyerId);
-            HasRequired(a => a.Showroomer).WithMany(a => a.Reviews).HasForeignKey(a => a.ShowroomerId);
+            HasRequired(a => a.Buyer).WithMany(a => a.Reviews).HasForeignKey(a => a.BuyerId).WillCascadeOnDelete(true);
+            HasRequired(a => a.Showroomer).WithMany(a => a.Reviews).HasForeignKey(a => a.ShowroomerId).WillCascadeOnDelete(true);
 
         }
     }

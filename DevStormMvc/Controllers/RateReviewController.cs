@@ -74,6 +74,7 @@ namespace DevStormMvc.Controllers
             RateReview r = (RateReview)serviceRateReview.GetById(id);
             RateReviewModel rm = new RateReviewModel
             {
+
                 //ratereviewId = r.RateReviewId,
                 Buyer = r.Buyer,
                 mark = r.Mark,
@@ -93,9 +94,8 @@ namespace DevStormMvc.Controllers
                 // TODO: Add update logic here
                 RateReview r = (RateReview)serviceRateReview.GetById(id);
                 r.Mark = rm.mark;
-
-              //  r.RateReviewId = rm.ratereviewId;
-                r.Buyer = rm.Buyer;
+				//  r.RateReviewId = rm.ratereviewId;
+				r.Buyer = rm.Buyer;
                 r.Showroomer = rm.Showroomer;
                 return RedirectToAction("Index");
             }

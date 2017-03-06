@@ -15,6 +15,8 @@ namespace DevStormMvc.Data.Infrastructure
         void Delete(Expression<Func<T, bool>> where);
         T GetById(long Id);
         T GetById(string Id);
+        T GetBy2Id(long idUser, long idProduct);
+        T GetBy3Id(long id,long idUser, long idProduct);
         T Get(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where);

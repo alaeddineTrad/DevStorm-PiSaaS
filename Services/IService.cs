@@ -14,6 +14,8 @@ namespace Services
         void Delete(Expression<Func<T, bool>> where);
         T GetById(long id);
         T GetById(string id);
+        T GetBy2Id(long idUser, long idProduct);
+        T GetBy3Id(long id,long idUser, long idProduct);
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null);
         T Get(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
