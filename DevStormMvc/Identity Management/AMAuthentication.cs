@@ -22,17 +22,17 @@ namespace DevStormMvc.Identity_Management
 
         // Attribute used by the context
         // Marouane Attributes
-        //private string _adServerName = "192.168.126.189:389";
-        //private string _adRoot = "dc=devstorm,dc=tn";
-        //private string _adUserName = "Administrateur";
-        //private string _adUserPassword = "KingHolding2007.";
+        private string _adServerName = "192.168.126.189:389";
+        private string _adRoot = "dc=devstorm,dc=tn";
+        private string _adUserName = "Administrateur";
+        private string _adUserPassword = "KingHolding2007.";
 
 
         // Sedki Attributes
-        private string _adServerName = "windowsserverad.devstorm.tn:389";
-        private string _adRoot = "dc=devstorm,dc=tn";
-        private string _adUserName = "Administrator";
-        private string _adUserPassword = "Devstorm/2016";
+        //private string _adServerName = "windowsserverad.devstorm.tn:389";
+        //private string _adRoot = "dc=devstorm,dc=tn";
+        //private string _adUserName = "Administrator";
+        //private string _adUserPassword = "Devstorm/2016";
 
         private AMAuthentication()
         {

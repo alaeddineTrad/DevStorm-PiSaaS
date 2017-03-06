@@ -17,54 +17,6 @@ namespace DevStormMvc.Controllers
 
         IServiceUser su = new ServiceUser();
         AccountServices acs = new AccountServices("alaa");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // GET: AD
         public ActionResult Index()
         {
@@ -86,27 +38,20 @@ namespace DevStormMvc.Controllers
            
                 if (um.password1 == um.password2)
                 {
-                    u.FirstName = um.firstname;
-                    u.LastName = um.lastName;
-                    u.Password = um.password1;
-                    u.Email = um.email;
                     u.UserName = um.username;
-                    u.Phone =  um.phone;
-                    u.Adress = new Domain.Entities.ComplexType.Address { City = "Tunis" ,Street="33khirdine",ZipCode=2090};
-                    try
-                    {                 
-                        acs.CreateNewUser(u.UserName, u.Password, u.FirstName, u.LastName, u.Email, u.Phone);
-                        //su.Add(u);
-                        //su.Commit();
+                    u.Adress = new Domain.Entities.ComplexType.Address { City = um.city ,Street=um.street,ZipCode=um.zipcode};
+                                    
+                        
+                        su.Add(u);
+                        su.Commit();
+                        acs.CreateNewUser(um.username, um.password1, um.firstname, um.lastName, um.email, um.phone);
                         return RedirectToAction("Details");
                        
-                    }
-                    catch(Exception ex)
-                    {
-                         return View();
+                   
+                        
                         //return ex;
 
-                    }
+                    
                 }
             }
             return View();
