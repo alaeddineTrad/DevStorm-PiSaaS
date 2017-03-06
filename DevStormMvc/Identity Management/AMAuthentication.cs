@@ -22,10 +22,16 @@ namespace DevStormMvc.Identity_Management
 
         // Attribute used by the context
         // Marouane Attributes
-        private string _adServerName = "192.168.126.189:389";
+        //private string _adServerName = "192.168.126.189:389";
+        //private string _adRoot = "dc=devstorm,dc=tn";
+        //private string _adUserName = "Administrateur";
+        //private string _adUserPassword = "KingHolding2007.";
+
+        // AWS Attributes
+        private string _adServerName = "34.249.163.90:389";
         private string _adRoot = "dc=devstorm,dc=tn";
-        private string _adUserName = "Administrateur";
-        private string _adUserPassword = "KingHolding2007.";
+        private string _adUserName = "Administrator";
+        private string _adUserPassword = "Ci%c9vG!$q";
 
 
         // Sedki Attributes

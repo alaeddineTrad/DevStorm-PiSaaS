@@ -176,7 +176,7 @@ namespace DevStormMvc.Identity_Management
         {
             if (!IsUserExisiting(sUserName))
             {
-                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrateur", "KingHolding2007."); 
+                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Ci%c9vG!$q"); 
 
                 UserPrincipal oUserPrincipal = new UserPrincipal
                    (oPrincipalContext, sUserName, sPassword, true);
@@ -197,6 +197,24 @@ namespace DevStormMvc.Identity_Management
             }
 
         }
+
+        public List<Principal> GetAllOuUsers()
+        {
+            List<Principal> Users = new List<Principal>() ;
+            
+            UserPrincipal qbeUser = new UserPrincipal(_adContext);
+           // qbeUser.Enabled = true;
+
+            PrincipalSearcher srch = new PrincipalSearcher(qbeUser);
+           
+            // find all matches
+            foreach (var found in srch.FindAll())
+            {
+                Users.Add(found);
+            }
+            return Users;
+        }
+       
 
     }
 }
