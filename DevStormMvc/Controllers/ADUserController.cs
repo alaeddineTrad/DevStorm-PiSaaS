@@ -1,6 +1,7 @@
 ﻿using DevStormMvc.Identity_Management;
 using DevStormMvc.Models;
 using Domain.Entities;
+using ServicesSpec;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace DevStormMvc.Controllers
     public class ADUserController : Controller
     {
         // GET: ADUser
-        ADCrud adc = new ADCrud();
+        IServiceUser su = new ServiceUser();
         AccountServices acs = new AccountServices("alaa");
-         ADMethodsAccountManagement Admethods = new ADMethodsAccountManagement();
+        
         // GET: AD
         public ActionResult Index()
         {
@@ -32,40 +33,30 @@ namespace DevStormMvc.Controllers
         public ActionResult Create(ADUserModel um)
         {
             User u = new User();
-            string b;
-                try
-                {
-                  b =Admethods.GetUser(um.username).UserPrincipalName;
-                }
-                catch
-                {
-                    b = null;
-                }
-            if (b == null)
-            {
+            if( !(acs.IsUserExisiting(um.username))) { 
+           
                 if (um.password1 == um.password2)
                 {
-
                     u.FirstName = um.firstname;
                     u.LastName = um.lastName;
-
                     u.Password = um.password1;
                     u.Email = um.email;
                     u.UserName = um.username;
                     u.Phone =  um.phone;
+                    u.Adress = new Domain.Entities.ComplexType.Address { City = "Tunis" ,Street="33khirdine",ZipCode=2090};
                     try
-                    {
-                        // TODO: Add insert logic here
+                    {                 
                         acs.CreateNewUser(u.UserName, u.Password, u.FirstName, u.LastName, u.Email, u.Phone);
-                        
-
+                        //su.Add(u);
+                        //su.Commit();
                         return RedirectToAction("Details");
-                        // return View();
+                       
                     }
-                    catch
+                    catch(Exception ex)
                     {
+                         return View();
+                        //return ex;
 
-                        return View();
                     }
                 }
             }
@@ -85,9 +76,13 @@ namespace DevStormMvc.Controllers
             um.lastName = u.Surname;
             um.phone = u.VoiceTelephoneNumber;
             um.LastLogon =(DateTime) u.LastLogon;
-            if (acs.IsUserGroupMember(u.Name,"showroomer"))
+            if (acs.IsUserGroupMember(u.SamAccountName,"showroomer"))
             {
                 um.Role = "showroomer";
+            }
+            else
+            {
+                um.Role = "User";
             }
             
             return View(um);
