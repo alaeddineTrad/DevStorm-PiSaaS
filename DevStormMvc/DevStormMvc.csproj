@@ -399,10 +399,10 @@
     <Content Include="Views\Voucher\Delete.cshtml" />
     <Content Include="Views\ADUser\Details.cshtml" />
     <Content Include="Views\ADUser\Edit.cshtml" />
-    <Content Include="Views\ADUser\Create.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ADUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,6 +27,10 @@ namespace DevStormMvc.Models
         public string email { get; set; }
         [DataType(DataType.PhoneNumber)]
         public string phone { get; set; }
+        
+        public string city { get; set; }
+        public string street { get; set; }
+        public int zipcode { get; set; }
 
     }
 }
