@@ -69,6 +69,7 @@
     <Compile Include="ServiceProduct.cs" />
     <Compile Include="ServiceRate.cs" />
     <Compile Include="ServiceRateReview.cs" />
+    <Compile Include="ServiceShowroom.cs" />
     <Compile Include="ServiceShowroomer.cs" />
     <Compile Include="ServiceUser.cs" />
     <Compile Include="ServiceVoucher.cs" />

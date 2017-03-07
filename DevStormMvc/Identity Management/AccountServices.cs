@@ -15,6 +15,9 @@ namespace DevStormMvc.Identity_Management
         // Principal context instance
         private PrincipalContext _adContext;
 
+        // Principal context instance for OU specific utilization
+        private PrincipalContext _adOuContext;
+
         public PrincipalContext adContext
         {
             get {
@@ -28,6 +31,7 @@ namespace DevStormMvc.Identity_Management
         public AccountServices()
         {
             _adContext = AMAuthentication.getContext();
+            _adOuContext = AMAuthentication.getOuContext("ZARA");
         }
 
         /// <summary>
@@ -38,11 +42,13 @@ namespace DevStormMvc.Identity_Management
         public AccountServices(string userName, string password)
         {
             _adContext = AMAuthentication.getContext();
+            _adOuContext = AMAuthentication.getOuContext("ZARA");
             _userCredential = new UserCredential(userName, password,_adContext);
         }
         public AccountServices(string userName)
         {
             _adContext = AMAuthentication.getContext();
+            _adOuContext = AMAuthentication.getOuContext("ZARA");
             _userCredential = new UserCredential(userName, _adContext);
 
         }
@@ -176,10 +182,10 @@ namespace DevStormMvc.Identity_Management
         {
             if (!IsUserExisiting(sUserName))
             {
-                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrateur", "KingHolding2007."); 
-
+                //PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrateur", "KingHolding2007."); 
+                
                 UserPrincipal oUserPrincipal = new UserPrincipal
-                   (oPrincipalContext, sUserName, sPassword, true);
+                   (_adOuContext, sUserName, sPassword, true);
 
                 //User Log on Name
                 oUserPrincipal.UserPrincipalName = sUserName;

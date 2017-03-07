@@ -73,29 +73,6 @@
                     </div>
                 </div>
             </div>
-
-            <div style="font-family:Arial">
-                <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-                <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-                <h2>Comments</h2>
-                @Ajax.ActionLink("All", "All", new AjaxOptions()
-               {
-                   HttpMethod = "GET",
-                   UpdateTargetId = "divComments",
-                   InsertionMode = InsertionMode.Replace
-               })
-                <span style="color:blue">|</span>
-                @Ajax.ActionLink("Last", "Last", new AjaxOptions()
-               {
-                   HttpMethod = "GET",
-                   UpdateTargetId = "divComments",
-                   InsertionMode = InsertionMode.Replace
-               })
-                <div id="divComments">
-
-                </div>
-            </div>
-
-        </div>
+     </div>
     </div>
 </div>

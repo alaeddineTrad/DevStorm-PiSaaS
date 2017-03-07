@@ -68,9 +68,7 @@ namespace DevStormMvc.Controllers
         public ActionResult Create()
         {
             IEnumerable<Showroomer> showroomers = serviceShowroomer.GetAll();
-
             VoucherModel pvm = new VoucherModel();
-
             pvm.ListShowroomers = showroomers.ToSelectShowroomer();
 
             return View(pvm);
@@ -87,10 +85,7 @@ namespace DevStormMvc.Controllers
                 Name = VM.name,
                 Reference = VM.reference,
                 VoucherId = VM.voucherId,
-
                 UserId = VM.userId
-
-
 
             };
             try
