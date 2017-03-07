@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.ComplexType;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Domain.Entities
 {
     public class User 
     {
+        [Key]
         private int userId;
         private string userName;
         private string password;
@@ -16,16 +18,13 @@ namespace Domain.Entities
         private string firstName;
         private string lastName;
         private Address adress;
-        private int phone;
+        private string phone;
         private DateTime dateCreation;
         public virtual ICollection<Media> Medias { get; set; }
         public virtual ICollection<Interaction> Interactions { get; set; }
        
 
-        public User()
-        {
-
-        }
+       
         public int UserId
         {
             get
@@ -117,18 +116,7 @@ namespace Domain.Entities
             }
         }
 
-        public int Phone
-        {
-            get
-            {
-                return phone;
-            }
-
-            set
-            {
-                phone = value;
-            }
-        }
+       
 
         public DateTime DateCreation
         {
@@ -140,6 +128,19 @@ namespace Domain.Entities
             set
             {
                 dateCreation = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
             }
         }
     }

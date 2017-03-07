@@ -16,10 +16,7 @@ namespace Domain.Entities
         public virtual ICollection<Review> Reviews { get; set; }
 
 
-        public Showroomer() : base()
-        {
-
-        }
+      
         public string Description
         {
             get

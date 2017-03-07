@@ -55,6 +55,7 @@
       <HintPath>..\packages\System.DirectoryServices.4.0.0\lib\System.DirectoryServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -177,15 +178,15 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ADUserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
@@ -200,19 +201,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="helper\ExtensionMethode.cs" />
+    <Compile Include="Identity Management\AccountServices.cs" />
+    <Compile Include="Identity Management\ADCrud.cs" />
+    <Compile Include="Identity Management\ADMethodsAccountManagement.cs" />
+    <Compile Include="Identity Management\AMAuthentication.cs" />
     <Compile Include="Identity Management\DirectoryAttributes.cs" />
     <Compile Include="Identity Management\LdapAuthentication.cs" />
+    <Compile Include="Identity Management\Login\AdAuthenticationService.cs" />
+    <Compile Include="Identity Management\UserCredential.cs" />
     <Compile Include="Im.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ADUserLongModel.cs" />
+    <Compile Include="Models\ADUserModel.cs" />
     <Compile Include="Models\BuyerModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\CommentReviewModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\InteractionModel.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MediaModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
@@ -227,7 +234,6 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -235,6 +241,7 @@
     <Content Include="bin\Data.dll" />
     <Content Include="bin\Data.pdb" />
     <Content Include="bin\DevStormMvc.dll" />
+    <Content Include="bin\DevStormMvc.dll.config" />
     <Content Include="bin\DevStormMvc.pdb" />
     <Content Include="bin\Domain.dll" />
     <Content Include="bin\Domain.pdb" />
@@ -277,14 +284,18 @@
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
     <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\Services.dll" />
     <Content Include="bin\Services.pdb" />
     <Content Include="bin\ServicesSpec.dll" />
     <Content Include="bin\ServicesSpec.pdb" />
+    <Content Include="bin\System.DirectoryServices.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.Formatting.xml" />
     <Content Include="bin\System.Web.Helpers.dll" />
@@ -324,12 +335,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
+    <Content Include="obj\Debug\DevStormMvc.csproj.FileListAbsolute.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="bin\DevStormMvc.dll.config" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\DevStormMvc.csprojResolveAssemblyReference.cache" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -357,26 +368,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
@@ -420,6 +412,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Content Include="Views\ADUser\Details.cshtml" />
+    <Content Include="Views\ADUser\Edit.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ADUser\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\uploads\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Image\" />
+    <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>

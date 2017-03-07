@@ -10,9 +10,9 @@ namespace DevStormMvc.Models
     {
      
         public int imageId { get; set; }
-        public int name { get; set; }
+        public string name { get; set; }
 
-        public int url { get; set; }
+        public string url { get; set; }
         public virtual Product Product { get; set; }
         
 

@@ -1,4 +1,4 @@
-﻿namespace Consoleldap
+﻿namespace DevStormMvc.Identity_Management
 {
     public static class DirectoryAttributes
     {

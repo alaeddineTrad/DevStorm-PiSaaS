@@ -138,7 +138,7 @@
             <p>Welcome back, friend. Login to get started</p>
             <hr />
             <form>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>Email or Username</label>
                     <input class="form-control" type="text" />
                 </div>
@@ -151,7 +151,8 @@
                         <input class="i-check" type="checkbox" />Remeber Me
                     </label>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Sign In" />
+                <input class="btn btn-primary" type="submit" value="Sign In" />*@
+                
             </form>
             <div class="gap gap-small"></div>
             <ul class="list-inline">
@@ -164,10 +165,11 @@
             </ul>
         </div>
         <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
-            <h3 class="widget-title">Create TheBox Account</h3>
-            <p>Ready to get best offers? Let's get started!</p>
+            @*<h3 class="widget-title">Create TheBox Account</h3>
+            <p>Ready to get best offers? Let's get started!</p>*@
             <hr />
-            <form>
+            @*@Html.Partial("_RegisterPartial")*@
+            @*<form>
                 <div class="form-group">
                     <label>Email</label>
                     <input class="form-control" type="text" />
@@ -190,7 +192,7 @@
                     </label>
                 </div>
                 <input class="btn btn-primary" type="submit" value="Create Account" />
-            </form>
+            </form>*@
             <div class="gap gap-small"></div>
             <ul class="list-inline">
                 <li>
@@ -776,6 +778,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right navbar-right-no-mar navbar-nav-lg">
                             <li>
+
                                 <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span>Hello, Sign in</span>Your Account</a>
                             </li>
                             <li class="dropdown">
@@ -1811,10 +1814,11 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">Sign In</a>
+                            
+                            <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>
                         </li>
                         <li>
-                            <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text">Create Account</a>
+                            <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text"> @Html.ActionLink("Create Account", "Create", "ADuser")</a>
                         </li>
                         <li class="dropdown">
                             <a class="fa fa-shopping-cart" href="shopping-cart.html"></a>
