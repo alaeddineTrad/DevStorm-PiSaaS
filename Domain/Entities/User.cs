@@ -22,9 +22,9 @@ namespace Domain.Entities
         private DateTime dateCreation;
         public virtual ICollection<Media> Medias { get; set; }
         public virtual ICollection<Interaction> Interactions { get; set; }
-       
 
-       
+        public virtual ICollection<Order> Orders { get; set; }
+
         public int UserId
         {
             get

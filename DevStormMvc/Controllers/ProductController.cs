@@ -11,21 +11,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
-using System.Collections.Generic;
+using Services;
 
 namespace DevStormMvc.Controllers
 {
     public class ProductController : Controller
     {
-
-        ServiceProduct serviceProduct;
+        IServiceRate serviceRate = new ServiceRate();
+        //IServiceProduct serviceProduct = new ServiceProduct();
         IServiceComment serviceComment = new ServiceComment();
+        IServiceShowroom serviceShowroom = new ServiceShowroom();
+		ServiceProduct serviceProduct;
         ServiceImage serviceImage = new ServiceImage();
 
         public ProductController()
         {
             serviceProduct =  new ServiceProduct();
         }
+
         // GET: Product
         public ActionResult Index()
         {
@@ -77,6 +80,74 @@ namespace DevStormMvc.Controllers
             
             return View(pm);
         }
+        public PartialViewResult All(int id)
+        {
+            List<CommentModel> cr = new List<CommentModel>();
+            var l = serviceComment.GetAll().Where(x => x.ProductId == id);
+            foreach (var item in l)
+            {
+                cr.Add(new CommentModel
+                {
+                    date = item.Date,
+                    text = item.Text
+                });
+            }
+
+            return PartialView("_Comment", cr);
+        }
+        public PartialViewResult AllRate(int id)
+        {
+            List<RateModel> cr = new List<RateModel>();
+            var l = serviceRate.GetAll().Where(x=>x.ProductId==id);
+            foreach (var item in l)
+            {
+                cr.Add(new RateModel
+                {   
+                    mark = item.Mark,
+                    user=item.User
+                    
+                 });
+            }
+            return PartialView("_Rate", cr);
+        }
+        public PartialViewResult AllShowrooms(int id)
+        {
+            List<ShowroomModel> cr = new List<ShowroomModel>();
+            var l = serviceShowroom.GetAll().Where(x => x.ProductId == id);
+            foreach (var item in l)
+            {
+                cr.Add(new ShowroomModel
+                {
+                    
+                    Showroomer = item.Showroomer,
+
+
+                });
+            }
+            return PartialView("_Showrooms", cr);
+        }
+        public PartialViewResult AvgRate(int id)
+        {
+            
+            var l = serviceRate.GetAll().Where(x => x.ProductId == id).Average(x=>x.Mark);
+            return PartialView("_Avg",l);
+
+        }
+        public PartialViewResult Last(int id)
+        {
+            List<CommentModel> cr = new List<CommentModel>();
+            var l = serviceComment.GetAll().Where(x => x.ProductId == id).OrderByDescending(x => x.Date).Take(1);
+            foreach (var item in l)
+            {
+                cr.Add(new CommentModel
+                {
+                    date = item.Date,
+                    text = item.Text
+                });
+            }
+            return PartialView("_Comment", cr);
+        }
+
 
         // GET: Product/Create
         public ActionResult Create()
@@ -105,7 +176,6 @@ namespace DevStormMvc.Controllers
                 Category = PM.category,
                 
                
-
             };
             serviceProduct.Add(p);
             serviceProduct.Commit();
@@ -208,7 +278,6 @@ namespace DevStormMvc.Controllers
             serviceImage.Commit();
             try
             {
-
                 // TODO: Add update logic here
                 Product p = (Product)serviceProduct.GetById(id);
                 p.Name = pm.name;
@@ -229,36 +298,8 @@ namespace DevStormMvc.Controllers
                 return View(pm);
             }
         }
-        public PartialViewResult All()
-        {
-            List<CommentModel> cr = new List<CommentModel>();
-            var l = serviceComment.GetAll();
-            foreach (var item in l)
-            {
-                cr.Add(new CommentModel
-                {
-                    date = item.Date,
-                    text = item.Text
-                });
-            }
-            return PartialView("_Comment", cr);
-        }
-        public PartialViewResult Last()
-        {
-            List<CommentModel> cr = new List<CommentModel>();
-            var l = serviceComment.GetAll().OrderByDescending(x=>x.Date).Take(1);
-            foreach (var item in l)
-            {
-                cr.Add(new CommentModel
-                {
-                    
-                    date = item.Date,
-                    text = item.Text
-                });
-            }
-            return PartialView("_Comment", cr);
-        }
-
+    
+    
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {

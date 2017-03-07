@@ -33,6 +33,7 @@ namespace ConsoleApplication1
             Showroomer sh2 = new Showroomer { Adress = add, FirstName = "test3", Location = loc };
             DatabaseFactory d = new DatabaseFactory();
             UnitOfWork u = new UnitOfWork(d);
+            
             u.GetRepository<Showroomer>().Add(sh);
             u.GetRepository<Showroomer>().Add(sh1);
             u.GetRepository<Showroomer>().Add(sh2);
@@ -59,8 +60,8 @@ namespace ConsoleApplication1
             //Comment c = new Comment {InteractionId=1,Text="ss" };
             //u.GetRepository<Product>().Add(p);
             //u.GetRepository<User>().Add(a);
-            u.GetRepository<Comment>().Delete(u.GetRepository<Comment>().GetBy3Id(0, 1, 1));
-            u.Commit();
+            //u.GetRepository<Comment>().Delete(u.GetRepository<Comment>().GetBy3Id(0, 1, 1));
+            //u.Commit();
 
             //User a = new User { FirstName = "Ala",Adress=ad };
             //Product p = new Product {Brand="zara" };

@@ -55,7 +55,8 @@
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.productId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" }) |
                                 @Html.ActionLink("Details", "Details", new { id = item.productId }, htmlAttributes: new { @class = "btn btn-primary", @type = "submit" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.productId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.productId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" }) |
+                                @Html.ActionLink("Add to cart", "Create","Order", new { idProduct = item.productId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
                             </td>
                         </tr>
                     }
@@ -72,29 +73,6 @@
                     </div>
                 </div>
             </div>
-
-            <div style="font-family:Arial">
-                <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-                <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-                <h2>Comments</h2>
-                @Ajax.ActionLink("All", "All", new AjaxOptions()
-               {
-                   HttpMethod = "GET",
-                   UpdateTargetId = "divComments",
-                   InsertionMode = InsertionMode.Replace
-               })
-                <span style="color:blue">|</span>
-                @Ajax.ActionLink("Last", "Last", new AjaxOptions()
-               {
-                   HttpMethod = "GET",
-                   UpdateTargetId = "divComments",
-                   InsertionMode = InsertionMode.Replace
-               })
-                <div id="divComments">
-
-                </div>
-            </div>
-
-        </div>
+     </div>
     </div>
 </div>

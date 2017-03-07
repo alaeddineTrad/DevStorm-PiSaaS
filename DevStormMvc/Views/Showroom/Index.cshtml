@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DevStormMvc.Models.ShowroomModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowroomerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Location.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowroomerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { idUser = item.ShowroomerId, idProduct = item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>
