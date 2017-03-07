@@ -1,5 +1,6 @@
 ﻿using DevStormMvc.App_Start;
 using Domain.Entities;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using ServicesSpec;
 using System;
@@ -79,6 +80,7 @@ namespace DevStormMvc.Identity_Management.Login
 
             var identity = CreateIdentity(userPrincipal);
 
+            
             authenticationManager.SignOut(MyAuthentication.ApplicationCookie);
             authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, identity);
 
@@ -92,7 +94,7 @@ namespace DevStormMvc.Identity_Management.Login
             var identity = new ClaimsIdentity(MyAuthentication.ApplicationCookie, ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Active Directory"));
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
-            identity.AddClaim(new Claim(ClaimTypes.Sid, this.getIdByUsername(userPrincipal.SamAccountName).ToString()));
+            identity.AddClaim(new Claim(ClaimTypes.GivenName, userPrincipal.GivenName));
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
             if (!String.IsNullOrEmpty(userPrincipal.EmailAddress))
             {
@@ -100,6 +102,7 @@ namespace DevStormMvc.Identity_Management.Login
             }
 
             // add your own claims if you need to add more information stored on the cookie
+            
 
             return identity;
         }

@@ -1,10 +1,14 @@
 ﻿using DevStormMvc.App_Start;
 using DevStormMvc.Identity_Management.Login;
 using DevStormMvc.Models;
+using Domain.Entities;
 using Microsoft.Owin.Security;
+using ServicesSpec;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,6 +43,12 @@ namespace DevStormMvc.Controllers
             if (authenticationResult.IsSuccess)
             {
                 // we are in!
+                HttpCookie userCookie = new HttpCookie("UserId");
+                ServiceUser serviceUser = new ServiceUser();
+                IEnumerable<User> users = serviceUser.GetMany(x => x.UserName.Equals(model.Username));
+                userCookie.Value = Convert.ToString(users.First().UserId);
+                Response.Cookies.Add(userCookie);
+                ViewData["UserId"] = userCookie;
                 return RedirectToLocal(returnUrl);
             }
 

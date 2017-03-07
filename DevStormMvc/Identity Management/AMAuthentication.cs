@@ -44,31 +44,12 @@ namespace DevStormMvc.Identity_Management
                 _adUserPassword);
         }
 
-        private AMAuthentication(string adUserOU)
-        {
-            _adContext = new PrincipalContext(ContextType.Domain,
-               _adServerName,
-               "OU=" + _adUserOU + "," + _adRoot,
-               _adUserName,
-               _adUserPassword);
-        }
 
         public static PrincipalContext getContext()
         {
             if (_amAuthentication == null)
             {
                 _amAuthentication = new AMAuthentication();
-                adContext = _adContext;
-                return adContext;
-            }
-            return adContext;
-        }
-
-        public static PrincipalContext getOuContext(string ou)
-        {
-            if (_amAuthentication == null)
-            {
-                _amAuthentication = new AMAuthentication(ou);
                 adContext = _adContext;
                 return adContext;
             }

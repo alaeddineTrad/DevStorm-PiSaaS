@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,10 +17,11 @@ namespace DevStormMvc.Controllers
         // GET: ADUser
 
         IServiceUser su = new ServiceUser();
-        AccountServices acs = new AccountServices("alaa");
+        AccountServices acs = new AccountServices();
         // GET: AD
         public ActionResult Index()
         {
+            
             return View();
         }
 
