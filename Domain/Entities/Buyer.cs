@@ -9,7 +9,6 @@ namespace Domain.Entities
     public class Buyer : User
     {
         private string deliveryAddress;
-        public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
 
       

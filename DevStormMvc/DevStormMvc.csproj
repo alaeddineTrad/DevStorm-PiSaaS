@@ -182,6 +182,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Models\InteractionModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MediaModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\RateModel.cs" />
@@ -404,11 +406,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ADUser\Create.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\uploads\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />

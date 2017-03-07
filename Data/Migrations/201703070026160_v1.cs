@@ -33,8 +33,8 @@ namespace Data.Migrations
                         Adress_City = c.String(),
                         Adress_Street = c.String(),
                         Adress_ZipCode = c.Int(nullable: false),
-                        Phone = c.Int(nullable: false),
                         DateCreation = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        Phone = c.String(),
                     })
                 .PrimaryKey(t => t.UserId);
             
@@ -81,32 +81,33 @@ namespace Data.Migrations
                 .Index(t => t.ProductId);
             
             CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        OrderId = c.Int(nullable: false, identity: true),
+                        UserId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                        PurchaseId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrderId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Purchases", t => t.PurchaseId, cascadeDelete: true)
+                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.ProductId)
+                .Index(t => t.PurchaseId);
+            
+            CreateTable(
                 "dbo.Purchases",
                 c => new
                     {
-                        UserId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                        Date = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        Total = c.Single(nullable: false),
+                        PurchaseId = c.Int(nullable: false, identity: true),
+                        DatePurchase = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        Total = c.Double(nullable: false),
+                        Status = c.String(),
                     })
-                .PrimaryKey(t => new { t.UserId, t.ProductId })
-                .ForeignKey("dbo.Buyer", t => t.UserId)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.ProductId);
-            
-            CreateTable(
-                "dbo.Showrooms",
-                c => new
-                    {
-                        ShowroomerId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.ShowroomerId, t.ProductId })
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .ForeignKey("dbo.Showroomer", t => t.ShowroomerId)
-                .Index(t => t.ShowroomerId)
-                .Index(t => t.ProductId);
+                .PrimaryKey(t => t.PurchaseId);
             
             CreateTable(
                 "dbo.Media",
@@ -120,6 +121,19 @@ namespace Data.Migrations
                 .PrimaryKey(t => t.MediaId)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Showrooms",
+                c => new
+                    {
+                        ShowroomerId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ShowroomerId, t.ProductId })
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Showroomer", t => t.ShowroomerId)
+                .Index(t => t.ShowroomerId)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Vouchers",
@@ -226,12 +240,13 @@ namespace Data.Migrations
             DropForeignKey("dbo.Interaction", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Vouchers", "UserId", "dbo.Showroomer");
             DropForeignKey("dbo.Showrooms", "ShowroomerId", "dbo.Showroomer");
+            DropForeignKey("dbo.Showrooms", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Review", "ShowroomerId", "dbo.Showroomer");
             DropForeignKey("dbo.Review", "BuyerId", "dbo.Buyer");
+            DropForeignKey("dbo.Orders", "UserId", "dbo.User");
             DropForeignKey("dbo.Media", "UserId", "dbo.User");
-            DropForeignKey("dbo.Showrooms", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.Purchases", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.Purchases", "UserId", "dbo.Buyer");
+            DropForeignKey("dbo.Orders", "PurchaseId", "dbo.Purchases");
+            DropForeignKey("dbo.Orders", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Images", "ProductId", "dbo.Products");
             DropIndex("dbo.Buyer", new[] { "UserId" });
             DropIndex("dbo.Showroomer", new[] { "UserId" });
@@ -240,11 +255,12 @@ namespace Data.Migrations
             DropIndex("dbo.Comment", new[] { "InteractionId", "UserId", "ProductId" });
             DropIndex("dbo.CommentReview", new[] { "BuyerId", "ShowroomerId" });
             DropIndex("dbo.Vouchers", new[] { "UserId" });
-            DropIndex("dbo.Media", new[] { "UserId" });
             DropIndex("dbo.Showrooms", new[] { "ProductId" });
             DropIndex("dbo.Showrooms", new[] { "ShowroomerId" });
-            DropIndex("dbo.Purchases", new[] { "ProductId" });
-            DropIndex("dbo.Purchases", new[] { "UserId" });
+            DropIndex("dbo.Media", new[] { "UserId" });
+            DropIndex("dbo.Orders", new[] { "PurchaseId" });
+            DropIndex("dbo.Orders", new[] { "ProductId" });
+            DropIndex("dbo.Orders", new[] { "UserId" });
             DropIndex("dbo.Images", new[] { "ProductId" });
             DropIndex("dbo.Interaction", new[] { "ProductId" });
             DropIndex("dbo.Interaction", new[] { "UserId" });
@@ -257,9 +273,10 @@ namespace Data.Migrations
             DropTable("dbo.Comment");
             DropTable("dbo.CommentReview");
             DropTable("dbo.Vouchers");
-            DropTable("dbo.Media");
             DropTable("dbo.Showrooms");
+            DropTable("dbo.Media");
             DropTable("dbo.Purchases");
+            DropTable("dbo.Orders");
             DropTable("dbo.Images");
             DropTable("dbo.Products");
             DropTable("dbo.Interaction");

@@ -67,17 +67,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.cs" />
-    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.Designer.cs">
-      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
-	</Compile>
-    <Compile Include="Migrations\201703051652077_v1.cs" />
-    <Compile Include="Migrations\201703051652077_v1.Designer.cs">
-      <DependentUpon>201703051652077_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703061629109_v2.cs" />
-    <Compile Include="Migrations\201703061629109_v2.Designer.cs">
-      <DependentUpon>201703061629109_v2.cs</DependentUpon>
+    <Compile Include="Migrations\201703070026160_v1.cs" />
+    <Compile Include="Migrations\201703070026160_v1.Designer.cs">
+      <DependentUpon>201703070026160_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -98,9 +90,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703051543115_ImageEntityUpdate.resx">
-      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
-	</EmbeddedResource>
     <Content Include="obj\Debug\Data.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -109,11 +98,8 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703051652077_v1.resx">
-      <DependentUpon>201703051652077_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703061629109_v2.resx">
-      <DependentUpon>201703061629109_v2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703070026160_v1.resx">
+      <DependentUpon>201703070026160_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
