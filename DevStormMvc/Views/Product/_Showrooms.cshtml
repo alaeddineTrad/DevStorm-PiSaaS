@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DevStormMvc.Models.ShowroomModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Adress.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Adress.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showroomer.Phone)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.Adress.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.Adress.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showroomer.Phone)
+        </td>
+        
+        
+    </tr>
+}
+
+</table>

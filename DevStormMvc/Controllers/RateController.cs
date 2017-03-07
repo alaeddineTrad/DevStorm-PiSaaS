@@ -16,8 +16,21 @@ namespace DevStormMvc.Controllers
         // GET: Rate
         public ActionResult Index()
         {
-            return View();
+            List<RateModel> cr = new List<RateModel>();
+            var l = serviceRate.GetAll();
+            foreach (var item in l)
+            {
+                cr.Add(new RateModel
+                {
+                    InteractionId = item.InteractionId,
+                    UserId = item.UserId,
+                    ProductId = item.ProductId,
+                    mark = item.Mark
+                });
+            }
+            return View(cr);
         }
+        
 
         // GET: Rate/Details/5
         public ActionResult Details(int id)
@@ -35,21 +48,17 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(RateModel RM)
         {
+            Random nn = new Random();
             Rate r = new Rate
 
             {
-                //RateId = RM.rateId,
+                InteractionId = RM.InteractionId+nn.Next(201,400),
+                ProductId = RM.ProductId,
+                UserId = RM.UserId,
                 Mark = RM.mark
-
-
-            };
+           };
             try
             {
-                // TODO: Add insert logic here
-                //DatabaseFactory dbf = new DatabaseFactory();
-                //UnitOfWork u = new UnitOfWork(dbf);
-                //u.GetRepository<Rate>().Add(r);
-                //u.Commit();
                 serviceRate.Add(r);
                 serviceRate.Commit();
                 return RedirectToAction("Index");
@@ -62,41 +71,56 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Rate/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int idUser, int idProduct)
         {
-            return View();
+            Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+            RateModel cm = new RateModel
+            {
+                InteractionId = c.InteractionId,
+                UserId = c.UserId,
+                ProductId = c.ProductId,
+                mark=c.Mark
+            };
+            return View(cm);
         }
 
         // POST: Rate/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, int idUser, int idProduct, RateModel cm)
         {
             try
             {
-                // TODO: Add update logic here
-
+                Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+                c.Mark = cm.mark;
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(cm);
             }
         }
 
         // GET: Rate/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int idUser, int idProduct)
         {
-            return View();
+            Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+            RateModel cm = new RateModel
+            {
+                mark = c.Mark
+             };
+            return View(cm);
         }
 
         // POST: Rate/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, int idUser, int idProduct, RateModel RM)
         {
             try
             {
                 // TODO: Add delete logic here
 
+                serviceRate.Delete(serviceRate.GetBy3Id(id, idUser, idProduct));
+                serviceRate.Commit();
                 return RedirectToAction("Index");
             }
             catch

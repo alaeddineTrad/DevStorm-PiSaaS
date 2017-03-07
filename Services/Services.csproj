@@ -56,8 +56,11 @@
     <Compile Include="IService.cs" />
     <Compile Include="IServiceComment.cs" />
     <Compile Include="IServiceCommentReview.cs" />
+    <Compile Include="IServiceProduct.cs" />
     <Compile Include="IServiceRate.cs" />
     <Compile Include="IServiceRateReview.cs" />
+    <Compile Include="IServiceShowroom.cs" />
+    <Compile Include="IServiceUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
   </ItemGroup>

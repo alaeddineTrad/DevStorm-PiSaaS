@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
+    <Compile Include="Controllers\ShowroomController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="CS.aspx.cs">
@@ -396,20 +397,29 @@
     <Content Include="Views\Shared\_showroomer.cshtml" />
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\Comment\_Comment.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
-    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\Create11.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Voucher\Create.cshtml" />
     <Content Include="Views\Voucher\Index.cshtml" />
     <Content Include="Views\Voucher\Details.cshtml" />
     <Content Include="Views\Voucher\Edit.cshtml" />
     <Content Include="Views\Voucher\Delete.cshtml" />
+    <Content Include="Views\Product\_Rate.cshtml" />
+    <Content Include="Views\Product\_CreateRate.cshtml" />
+    <Content Include="Views\Rate\Create.cshtml" />
+    <Content Include="Views\Rate\Index.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Rate\Delete.cshtml" />
+    <Content Include="Views\Rate\Edit.cshtml" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Showroom\Create.cshtml" />
+    <Content Include="Views\Showroom\Index.cshtml" />
+    <Content Include="Views\Showroom\Delete.cshtml" />
+    <Content Include="Views\Product\_Showrooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>

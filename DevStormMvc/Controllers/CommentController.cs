@@ -1,6 +1,8 @@
 ﻿using DevStormMvc.Data.Infrastructure;
+using DevStormMvc.helper;
 using DevStormMvc.Models;
 using Domain.Entities;
+using Services;
 using ServicesSpec;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,9 @@ namespace DevStormMvc.Controllers
     public class CommentController : Controller
     {
         IServiceComment serviceComment = new ServiceComment();
+        IServiceRate serviceRate = new ServiceRate();
+        ServiceUser serviceUser = new ServiceUser();
+        IServiceProduct serviceProduct = new ServiceProduct();
         // GET: Comment
         public ActionResult Index()
         {
@@ -40,7 +45,7 @@ namespace DevStormMvc.Controllers
             {
                 cr.Add(new CommentModel
                 {
-                    //commentId = item.CommentId,
+                    
                     date = item.Date,
                     text = item.Text
                 });
@@ -57,6 +62,14 @@ namespace DevStormMvc.Controllers
         // GET: Comment/Create
         public ActionResult Create()
         {
+            //IEnumerable<User> Users = serviceUser.GetAll();
+            //IEnumerable<Product> Products = serviceProduct.GetAll();
+            
+            //CommentModel pum = new CommentModel();
+
+            //pum.ListUsers = Users.ToSelectUser();
+            //pum.ListProducts = Products.ToSelectProduct();
+
             return View();
         }
 
@@ -64,13 +77,12 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(CommentModel CM)
         {
+            Random nn = new Random();
             Comment c = new Comment
             {
-
-                InteractionId =CM.InteractionId,
+                InteractionId =CM.InteractionId+nn.Next(2,200),
                 ProductId=CM.ProductId,
                 UserId=CM.UserId,
-                //CommentId = CM.commentId,
                 Date = DateTime.Now,
                 Text = CM.text
                 

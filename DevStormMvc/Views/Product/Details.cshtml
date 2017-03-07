@@ -34,7 +34,67 @@
                 </div>
             </div>
         </div>
+    <div style="font-family:Arial">
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <h2>Comments</h2>
+        
+@Ajax.ActionLink("All", "All", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+{
+
+    HttpMethod = "GET",
+    UpdateTargetId = "divComments",
+    InsertionMode = InsertionMode.Replace
+})
+        <span style="color:blue">|</span>
+@Ajax.ActionLink("Last", "Last", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divComments",
+    InsertionMode = InsertionMode.Replace
+})
+        <div id="divComments">
+
+        </div>
     </div>
+<div style="font-family:Arial">
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <h2>Rates</h2>
+
+@Ajax.ActionLink("AllRate", "AllRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+{   HttpMethod = "GET",
+    UpdateTargetId = "divRates",
+    InsertionMode = InsertionMode.Replace
+})
+@*<span style="color:blue">|</span>
+@Ajax.ActionLink("AvgRate", "AvgRate", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divRates",
+    InsertionMode = InsertionMode.Replace
+})*@
+<div id="divRates">
+
+        </div>
+<div style="font-family:Arial">
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<h2>Showrooms</h2>
+
+@Ajax.ActionLink("AllShowrooms", "AllShowrooms", new { id = ViewContext.RouteData.Values["id"] }, new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divShow",
+    InsertionMode = InsertionMode.Replace
+})
+<div id="divShow">
+</div>
+    </div>
+
+    </div>
+
+
 @*</div>*@
    
     @*<dl class="dl-horizontal">
