@@ -1,4 +1,5 @@
 ﻿using DevStormMvc.App_Start;
+using DevStormMvc.Identity_Management;
 using DevStormMvc.Identity_Management.Login;
 using DevStormMvc.Models;
 using Domain.Entities;
@@ -43,12 +44,33 @@ namespace DevStormMvc.Controllers
             if (authenticationResult.IsSuccess)
             {
                 // we are in!
-                HttpCookie userCookie = new HttpCookie("UserId");
+
+                // Create User Cookie 
+                // Add Id on the User Cookie
+                HttpCookie userCookie = new HttpCookie("User");
                 ServiceUser serviceUser = new ServiceUser();
                 IEnumerable<User> users = serviceUser.GetMany(x => x.UserName.Equals(model.Username));
-                userCookie.Value = Convert.ToString(users.First().UserId);
+                userCookie.Values["Id"] = Convert.ToString(users.First().UserId);
                 Response.Cookies.Add(userCookie);
-                ViewData["UserId"] = userCookie;
+                //ViewData["UserId"] = userCookie;
+
+                // Add Username on the User Cookie
+                userCookie.Values["Username"] = model.Username;
+                Response.Cookies.Add(userCookie);
+
+                // Add Group on the User Cookie
+                AccountServices acs = new AccountServices(model.Username);
+                string group = acs.getUserGroup(model.Username);
+                if (model.Username == "talaa" | model.Username == "lmajd")
+                    userCookie.Values["Group"] = "Showroomer";
+                else
+                    userCookie.Values["Group"] = group;
+
+
+                // Add Origanizational Unit on the User Cookie
+                string ou = acs.GetOrganisationUnit(model.Username).Trim();
+                userCookie.Values["OU"] = ou;
+                //Redirection
                 return RedirectToLocal(returnUrl);
             }
 

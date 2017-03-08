@@ -12,7 +12,7 @@ namespace DevStormMvc.Models
         public string lastName { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
-        public DateTime LastLogon { get; set; }
+        //public DateTime LastLogon { get; set; }
         public string Role { get; set; }
     }
 }

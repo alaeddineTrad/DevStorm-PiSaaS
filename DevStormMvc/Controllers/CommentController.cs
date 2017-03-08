@@ -28,7 +28,7 @@ namespace DevStormMvc.Controllers
                 cr.Add(new CommentModel
                 {
                     InteractionId=item.InteractionId,
-                    UserId =item.UserId,
+                    UserId = item.UserId,
                     ProductId=item.ProductId,
                     date = item.Date,
                     text = item.Text
@@ -77,12 +77,13 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(CommentModel CM)
         {
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
             Random nn = new Random();
             Comment c = new Comment
             {
                 InteractionId =CM.InteractionId+nn.Next(2,200),
-                ProductId=CM.ProductId,
-                UserId=CM.UserId,
+                ProductId = CM.ProductId,
+                UserId= UserId,
                 Date = DateTime.Now,
                 Text = CM.text
                 
@@ -101,9 +102,10 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Comment/Edit/5
-        public ActionResult Edit(int id,int idUser,int idProduct)
+        public ActionResult Edit(int id, int idProduct)
         {
-            Comment c = (Comment)serviceComment.GetBy3Id(id,idUser,idProduct);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            Comment c = (Comment)serviceComment.GetBy3Id(id,UserId,idProduct);
             CommentModel cm = new CommentModel
             {   InteractionId=c.InteractionId,
                 UserId = c.UserId,
@@ -116,12 +118,13 @@ namespace DevStormMvc.Controllers
 
         // POST: Comment/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id,int idUser, int idProduct, CommentModel cm)
+        public ActionResult Edit(int id, int idProduct, CommentModel cm)
         {
             try
             {
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
                 // TODO: Add update logic here
-                Comment c = (Comment)serviceComment.GetBy3Id(id,idUser,idProduct);
+                Comment c = (Comment)serviceComment.GetBy3Id(id,UserId,idProduct);
                 c.Date = DateTime.Now;
                 c.Text = cm.text;
                 return RedirectToAction("Index");
@@ -133,9 +136,10 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Comment/Delete/5
-        public ActionResult Delete(int id, int idUser, int idProduct)
+        public ActionResult Delete(int id, int idProduct)
         {
-            Comment c = (Comment)serviceComment.GetBy3Id(id, idUser, idProduct);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            Comment c = (Comment)serviceComment.GetBy3Id(id, UserId, idProduct);
             CommentModel cm = new CommentModel
             {   date = c.Date,
                 text = c.Text
@@ -146,12 +150,13 @@ namespace DevStormMvc.Controllers
 
         // POST: Comment/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id,int idUser, int idProduct, CommentModel cm)
+        public ActionResult Delete(int id, int idProduct, CommentModel cm)
         {
             try
             {
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
                 // TODO: Add delete logic here
-                serviceComment.Delete(serviceComment.GetBy3Id(id, idUser, idProduct));
+                serviceComment.Delete(serviceComment.GetBy3Id(id, UserId, idProduct));
                 serviceComment.Commit();
                 return RedirectToAction("Index");
             }

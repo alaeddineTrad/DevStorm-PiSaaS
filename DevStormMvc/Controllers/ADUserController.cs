@@ -17,7 +17,7 @@ namespace DevStormMvc.Controllers
         // GET: ADUser
 
         IServiceUser su = new ServiceUser();
-        AccountServices acs = new AccountServices();
+        //AccountServices acs = new AccountServices();
         // GET: AD
         public ActionResult Index()
         {
@@ -35,6 +35,7 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(ADUserModel um)
         {
+            AccountServices acs = new AccountServices(um.username);
             User u = new User();
             if( !(acs.IsUserExisiting(um.username))) { 
            
@@ -47,7 +48,7 @@ namespace DevStormMvc.Controllers
                         su.Add(u);
                         su.Commit();
                         acs.CreateNewUser(um.username, um.password1, um.firstname, um.lastName, um.email, um.phone);
-                        return RedirectToAction("Details");
+                        return RedirectToAction("Index","Login");
                        
                    
                         
@@ -63,7 +64,7 @@ namespace DevStormMvc.Controllers
         public ActionResult Details()
         {
 
-
+            AccountServices acs = new AccountServices(HttpContext.Request.Cookies["User"].Values["Username"]);
             var u = acs.ShowUser();
 
             ADUserLongModel um = new ADUserLongModel();
@@ -72,7 +73,7 @@ namespace DevStormMvc.Controllers
             um.email = u.EmailAddress ;
             um.lastName = u.Surname;
             um.phone = u.VoiceTelephoneNumber;
-            um.LastLogon =(DateTime) u.LastLogon;
+            //um.LastLogon =(DateTime) u.LastLogon;
             if (acs.IsUserGroupMember(u.SamAccountName,"showroomer"))
             {
                 um.Role = "showroomer";
@@ -86,13 +87,14 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: ADUser/Edit/
-        public ActionResult Edit(string username)
+        public ActionResult Edit()
         {
-            acs = new AccountServices(username);
+            AccountServices acs = new AccountServices(HttpContext.Request.Cookies["User"].Values["Username"]);
+            //acs = new AccountServices(username);
             UserPrincipal user = acs.ShowUser();
             ADUserModel userModel = new ADUserModel
             {
-                username = username,
+                username = HttpContext.Request.Cookies["User"].Values["Username"],
                 firstname = user.GivenName,
                 lastName = user.Surname,
                 email = user.EmailAddress
@@ -105,6 +107,7 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Edit(ADUserModel userModel)
         {
+            AccountServices acs = new AccountServices(HttpContext.Request.Cookies["User"].Values["Username"]);
             try
             {
                 acs = new AccountServices(userModel.username);

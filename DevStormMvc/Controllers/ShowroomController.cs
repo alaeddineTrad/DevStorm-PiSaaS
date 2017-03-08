@@ -1,4 +1,5 @@
-﻿using DevStormMvc.Models;
+﻿using DevStormMvc.Identity_Management;
+using DevStormMvc.Models;
 using Domain.Entities;
 using Services;
 using ServicesSpec;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace DevStormMvc.Controllers
 {
+    [ADGroupAuthorize]
     public class ShowroomController : Controller
     {
         IServiceShowroom serviceShowroom = new ServiceShowroom();
@@ -50,10 +52,11 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(ShowroomModel sm)
         {
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
             Showroom s = new Showroom
             {
                 ProductId=sm.ProductId,
-                ShowroomerId=sm.ShowroomerId
+                ShowroomerId=UserId
 
             };
            
@@ -93,9 +96,10 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Showroom/Delete/5
-        public ActionResult Delete(int idUser, int idProduct)
+        public ActionResult Delete( int idProduct)
         {
-            Showroom c = (Showroom)serviceShowroom.GetBy2Id(idUser, idProduct);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            Showroom c = (Showroom)serviceShowroom.GetBy2Id(UserId, idProduct);
             ShowroomModel cm = new ShowroomModel
             {
                 product=c.Product
@@ -105,13 +109,13 @@ namespace DevStormMvc.Controllers
 
         // POST: Showroom/Delete/5
         [HttpPost]
-        public ActionResult Delete(int idUser, int idProduct, ShowroomModel cm)
+        public ActionResult Delete( int idProduct, ShowroomModel cm)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                serviceShowroom.Delete(serviceShowroom.GetBy2Id( idUser, idProduct));
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+                serviceShowroom.Delete(serviceShowroom.GetBy2Id( UserId, idProduct));
                 serviceShowroom.Commit();
                 return RedirectToAction("Index");
             }

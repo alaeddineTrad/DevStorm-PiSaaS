@@ -4,71 +4,54 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>ADUserLongModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.username)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.username)
-        </dd>
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="text-center">
+        <h2>User</h2>
+        <div class="gap gap-small"></div>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <div class="_box-hilight">
+                <h3>Username : @Html.DisplayFor(model => model.username)</h3>
+                <h3>Firstname : @Html.DisplayFor(model => model.firstname)</h3>
+                <h3>Lastname : @Html.DisplayFor(model => model.lastName)</h3>
+                <h3>Email : @Html.DisplayFor(model => model.email)</h3>
+                <h3>Phone : @Html.DisplayFor(model => model.phone)</h3>
+                <h3>Role : @Html.DisplayFor(model => model.Role)</h3>
+                <h3>Groups : @Request.Cookies["User"].Values["Group"]</h3>
+                <h3>Organizational Unit : @Request.Cookies["User"].Values["OU"]</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.firstname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.firstname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.lastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastLogon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastLogon)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-
-    </dl>
+                <div class="text-center">
+                    <div class="gap gap-small"></div>
+                    <ul class="product-page-action-list">
+                        <li class="col-md-9">@Html.ActionLink("Edit", "Edit", new { username = Model.username },htmlAttributes: new { @class = "btn btn-warning", @type= "submit"})</li>  
+                    </ul>
+                </div>
+            </div>
+        </div>        
+    </div>
 </div>
-<p>
+                    @*<dt>
+                @Html.DisplayNameFor(model => model.LastLogon)
+            </dt>*@
+                @*<dd>
+                @Html.DisplayFor(model => model.LastLogon)
+            </dd>*@
+                
+                @*<dt> Groups : </dt>
+                <dd> @Request.Cookies["User"].Values["Group"]</dd>
+                <dt> Organizational Unit : </dt>
+                <dd> @Request.Cookies["User"].Values["OU"]</dd>*@
+
+                
+
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { username = Model.username}) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@

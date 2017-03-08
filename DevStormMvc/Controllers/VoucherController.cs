@@ -78,6 +78,7 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(VoucherModel VM)
         {
+
             Voucher v = new Voucher
             {
                 Amount = VM.amount,

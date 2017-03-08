@@ -48,13 +48,14 @@ namespace DevStormMvc.Controllers
         [HttpPost]
         public ActionResult Create(RateModel RM)
         {
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
             Random nn = new Random();
             Rate r = new Rate
 
             {
                 InteractionId = RM.InteractionId+nn.Next(201,400),
                 ProductId = RM.ProductId,
-                UserId = RM.UserId,
+                UserId = UserId,
                 Mark = RM.mark
            };
             try
@@ -71,9 +72,10 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Rate/Edit/5
-        public ActionResult Edit(int id, int idUser, int idProduct)
+        public ActionResult Edit(int id , int idProduct)
         {
-            Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            Rate c = (Rate)serviceRate.GetBy3Id(id, UserId, idProduct);
             RateModel cm = new RateModel
             {
                 InteractionId = c.InteractionId,
@@ -86,11 +88,12 @@ namespace DevStormMvc.Controllers
 
         // POST: Rate/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, int idUser, int idProduct, RateModel cm)
+        public ActionResult Edit(int id , int idProduct, RateModel cm)
         {
             try
             {
-                Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+                Rate c = (Rate)serviceRate.GetBy3Id(id, UserId, idProduct);
                 c.Mark = cm.mark;
                 return RedirectToAction("Index");
             }
@@ -101,9 +104,10 @@ namespace DevStormMvc.Controllers
         }
 
         // GET: Rate/Delete/5
-        public ActionResult Delete(int id, int idUser, int idProduct)
+        public ActionResult Delete(int id, int idProduct)
         {
-            Rate c = (Rate)serviceRate.GetBy3Id(id, idUser, idProduct);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            Rate c = (Rate)serviceRate.GetBy3Id(id, UserId, idProduct);
             RateModel cm = new RateModel
             {
                 mark = c.Mark
@@ -113,13 +117,13 @@ namespace DevStormMvc.Controllers
 
         // POST: Rate/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, int idUser, int idProduct, RateModel RM)
+        public ActionResult Delete(int id, int idProduct, RateModel RM)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                serviceRate.Delete(serviceRate.GetBy3Id(id, idUser, idProduct));
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+                serviceRate.Delete(serviceRate.GetBy3Id(id, UserId, idProduct));
                 serviceRate.Commit();
                 return RedirectToAction("Index");
             }

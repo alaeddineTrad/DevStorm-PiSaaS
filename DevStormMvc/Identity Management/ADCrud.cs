@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Web;
 
@@ -101,6 +102,31 @@ namespace DevStormMvc.Identity_Management
             }
 
             return "done";
+        }
+
+        public string GetOrganisationUnit(string userName)
+        {
+            String domainAndUsername = "DEVSTORM" + @"\" + userName;
+            PrincipalContext domainContext = new PrincipalContext(ContextType.Domain, "192.168.126.189:389", "dc=devstorm,dc=tn", domainAndUsername, "KingHolding2007.");
+
+            UserPrincipal user = UserPrincipal.FindByIdentity(domainContext, userName);
+
+            /* Retreive the container
+             */
+            DirectoryEntry deUser = user.GetUnderlyingObject() as DirectoryEntry;
+            DirectoryEntry deUserContainer = deUser.Parent;
+            string aa = deUserContainer.Properties["distinguishedName"].Value.ToString();
+            string[] one = aa.Split(',');
+            foreach (var it in one)
+            {
+                if (it.Contains("OU"))
+                {
+                    return it.Replace("OU=", " ");
+                }
+            }
+            return aa;
+
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
@@ -140,12 +141,12 @@ namespace DevStormMvc.Identity_Management
             try
             {
                 UserPrincipal oUserPrincipal = _userCredential.GetUser(sUserName);
-                GroupPrincipal oGroupPrincipal = GetGroup(sGroupName);
+                GroupPrincipal oGroupPrincipal = GroupPrincipal.FindByIdentity(_adContext,IdentityType.Name,sGroupName);
                 if (oUserPrincipal == null || oGroupPrincipal == null)
                 {
                     if (!IsUserGroupMember(sUserName, sGroupName))
                     {
-                        oGroupPrincipal.Members.Add(oUserPrincipal);
+                        oGroupPrincipal.Members.Add(_adContext,IdentityType.UserPrincipalName,sUserName);
                         oGroupPrincipal.Save();
                     }
                 }
@@ -163,7 +164,7 @@ namespace DevStormMvc.Identity_Management
         /// <returns>Returns true if username Exists</returns>
         public bool IsUserExisiting(string sUserName)
         {
-            if (_userCredential. GetUser(sUserName) == null)
+            if (_userCredential.GetUser(sUserName) == null)
             {
                 return false;
             }
@@ -190,6 +191,7 @@ namespace DevStormMvc.Identity_Management
                 oUserPrincipal.EmailAddress = email;
                 oUserPrincipal.VoiceTelephoneNumber = phone;
                 oUserPrincipal.Save();
+                AddUserToGroup(sUserName,"showroomer");
 
                 return oUserPrincipal;
             }
@@ -200,5 +202,34 @@ namespace DevStormMvc.Identity_Management
 
         }
 
+        public string getUserGroup(string username)
+        {
+            if (IsUserGroupMember(username, "showroomer"))
+                return "Showroomer";
+            return "Buyer";
+        }
+
+        public string GetOrganisationUnit(string userName)
+        {
+            String domainAndUsername = "DEVSTORM" + @"\" + userName;
+            UserPrincipal user = UserPrincipal.FindByIdentity(_adContext, userName);
+
+            /* Retreive the container
+             */
+            DirectoryEntry deUser = user.GetUnderlyingObject() as DirectoryEntry;
+            DirectoryEntry deUserContainer = deUser.Parent;
+            string aa = deUserContainer.Properties["distinguishedName"].Value.ToString();
+            string[] one = aa.Split(',');
+            foreach (var it in one)
+            {
+                if (it.Contains("OU"))
+                {
+                    return it.Replace("OU=", " ");
+                }
+            }
+            return aa;
+
+
+        }
     }
 }

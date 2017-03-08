@@ -21,7 +21,8 @@ namespace DevStormMvc.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            IEnumerable<Order> orders = orderService.CartOrders(1);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            IEnumerable<Order> orders = orderService.CartOrders(UserId);
             List<OrderModel> OrdersModels = new List<OrderModel>();
             double Total = 0;
             foreach(Order o in orders)
@@ -61,7 +62,8 @@ namespace DevStormMvc.Controllers
         {
             try
             {
-                orderService.AddtoCart(1,om.idProd,om.Quantity);
+                int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+                orderService.AddtoCart(UserId,om.idProd,om.Quantity);
 
                 return RedirectToAction("Index");
             }
@@ -129,7 +131,8 @@ namespace DevStormMvc.Controllers
 
         public ActionResult Clear()
         {
-            orderService.ClearAll(1);
+            int UserId = Convert.ToInt32(HttpContext.Request.Cookies["User"].Values["Id"]);
+            orderService.ClearAll(UserId);
             return RedirectToAction("Index");
         }
     }

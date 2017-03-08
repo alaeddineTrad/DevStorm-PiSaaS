@@ -19,8 +19,8 @@
             @Html.DisplayFor(modelItem => item.mark)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idProduct = item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idProduct = item.ProductId })
         </td>
     </tr>
 }
