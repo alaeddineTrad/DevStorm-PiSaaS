@@ -4,63 +4,41 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>VoucherModel</h4>
+
+
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="text-center">
+        <h1>@Html.DisplayFor(model => model.name)</h1>
+        <div class="gap gap-small"></div>
+    </div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.voucherId)
-        </dt>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
 
-        <dd>
-            @Html.DisplayFor(model => model.voucherId)
-        </dd>
+            <div class="_box-highlight">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.reference)
-        </dt>
+                <h3> Reference :  @Html.DisplayFor(model => model.reference)</h3>
+                <h3>Description :  @Html.DisplayFor(model => model.description) </h3>
+                <h3>Amount :  @Html.DisplayFor(model => model.amount)</h3>
+                <h3>Showrromer :  @Html.DisplayFor(model => model.showroomer.FirstName)</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.reference)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.amount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.showroomer.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.showroomer.FirstName)
-        </dd>
-
-    </dl>
+                <div class="text-center">
+                    <div class="gap gap-small"></div>
+                    <ul class="product-page-actions-list">
+                        <li class="col-md-4">@Html.ActionLink("Edit", "Edit", new { id = Model.voucherId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })</li>
+                        <li class="col-md-4">@Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-info", @type = "submit" })</li>
+                    </ul>
+                    <div class="gap gap-small"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

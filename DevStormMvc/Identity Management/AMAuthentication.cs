@@ -13,6 +13,8 @@ namespace DevStormMvc.Identity_Management
 
         // Private attribute to make this class singleton
         private static AMAuthentication _amAuthentication;
+        // Private attribute to make this class singleton and obtain only OuContext
+        //private static AMAuthentication _amAuthenticationOu;
 
         // Private attribute to return a one context if initiated
         private static PrincipalContext _adContext;
@@ -22,18 +24,30 @@ namespace DevStormMvc.Identity_Management
 
         // Attribute used by the context
         // Marouane Attributes
-        //private string _adServerName = "192.168.126.189:389";
-        //private string _adRoot = "dc=devstorm,dc=tn";
-        //private string _adUserName = "Administrateur";
-        //private string _adUserPassword = "KingHolding2007.";
+        //private static string _adServerName = "192.168.126.189:389";
+        //private static string _adRoot = "dc=devstorm,dc=tn";
+        //private static string _adUserName = "Administrateur";
+        //private static string _adUserPassword = "KingHolding2007.";
+
+        // AWS Attributes
+        private static string _adServerName = "34.249.163.90:389";
+        private static string _adRoot = "dc=devstorm,dc=tn";
+        private static string _adUserName = "Administrator";
+        private static string _adUserPassword = "Ci%c9vG!$q";
+
 
 
         // Sedki Attributes
-        private string _adServerName = "windowsserverad.devstorm.tn:389";
-        private string _adRoot = "dc=devstorm,dc=tn";
-        private string _adUserName = "Administrator";
-        private string _adUserPassword = "Devstorm/2016";
-        private string _adUserOU = "";
+        //private string _adServerName = "windowsserverad.devstorm.tn:389";
+        //private string _adRoot = "dc=devstorm,dc=tn";
+        //private string _adUserName = "Administrator";
+        //private string _adUserPassword = "Devstorm/2016";
+
+        // This the public static attributes of the principal context
+        public static string adServerName { get { return _adServerName; } }
+        public static string adRoot { get { return _adRoot; } }
+        public static string adUserName { get { return _adUserName; } }
+        public static string adUserPassword { get { return _adUserPassword; } }
 
         private AMAuthentication()
         {
@@ -43,7 +57,6 @@ namespace DevStormMvc.Identity_Management
                 _adUserName,
                 _adUserPassword);
         }
-
 
         public static PrincipalContext getContext()
         {

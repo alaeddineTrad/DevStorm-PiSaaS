@@ -44,7 +44,7 @@
                             </td>
                            
                             <td>
-                                @Html.ActionLink("Edit", "Create", new { idProduct = item.idProd }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })|
+                                @Html.ActionLink("Edit", "Create", new { idProduct = item.idProd }, htmlAttributes: new { @class = "btn btn-success", @type = "submit" })|
                              @Html.ActionLink("Delete", "Delete", new { id = item.OrderId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" }) 
                             </td>
                         </tr>
@@ -52,11 +52,14 @@
 
                 </table>
 
-                @Html.ActionLink("Back to products", "Index","Product", "", htmlAttributes: new { @class = "btn btn-primary", @type = "submit" })
-                @Html.ActionLink("Clear all", "Clear","", htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
-               <div style="float:right;color:green;padding-right:250px;"><h3>Total : @ViewBag.Total€</h3></div> 
+               
+               
             </div>
-
+            <div class="gap gap-small"></div>
+            <div class="text-center">
+                @Html.ActionLink("Back to products", "Index", "Product", "", htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })
+                @Html.ActionLink("Clear all", "Clear", "", htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+                </div>
         </div>
     </div>
 </div>

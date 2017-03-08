@@ -3,37 +3,56 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h2>Comments list</h2>
+            <div class="gap gap-small"></div>
+        </div>
+          
+            <div class="box">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Comment date</th>
+                            <th>Text</th>
+                            <th>              </th>
+                            <th>              </th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-<h2>Index</h2>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.text)
-        </th>
-        <th></th>
-    </tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.text)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }, htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })|
+                                @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+               
+            
+        </div>
+        <div class="gap gap-small"></div>
+        <div class="form-group">
+            <div class="text-center">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.ActionLink("Create New", "Create", "Create", htmlAttributes: new { @class = "btn btn-success", @type = "submit" })
+              
+                    @Html.ActionLink("Back to products", "Index", "Product", "", htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })
+                </div>
+            </div>
 
-@foreach (var item in Model) {
-    <tr>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.text)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idProduct = item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idProduct = item.ProductId })
-        </td>
-    </tr>
-}
-
-</table>
+        </div>
+    </div>
+</div>

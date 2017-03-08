@@ -4,25 +4,51 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<table class="table">
-    <tr>
-  <th>
-            @Html.DisplayNameFor(model => model.mark)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h2>Rates list</h2>
+            <div class="gap gap-small"></div>
+        </div>
 
-@foreach (var item in Model) {
-    <tr>
-         <td>
-            @Html.DisplayFor(modelItem => item.mark)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idProduct = item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idProduct = item.ProductId })
-        </td>
-    </tr>
-}
+        <div class="box" >
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Mark</th>
+                    <th>UserID</th>
+                    <th>ProductID</th>
 
-</table>
+                    
+                </tr>
+                    </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mark)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+
+                        </td>
+                     
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductId)
+
+                        </td>
+                        <td>
+                      
+                            @Html.ActionLink("Edit", "Edit", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }, htmlAttributes: new { @class = "btn btn-success", @type = "submit" })|
+                            @Html.ActionLink("Delete", "Delete", new { id = item.InteractionId, idUser = item.UserId, idProduct = item.ProductId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+                            @Html.ActionLink("Back to products", "Index", "Product", "", htmlAttributes: new { @class = "btn btn-warning", @type = "submit" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>

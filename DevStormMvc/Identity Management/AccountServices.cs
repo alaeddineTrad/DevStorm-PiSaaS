@@ -101,8 +101,6 @@ namespace DevStormMvc.Identity_Management
         /// <returns>Returns the GroupPrincipal Object</returns>
         public GroupPrincipal GetGroup(string sGroupName)
         {
-            
-
             GroupPrincipal oGroupPrincipal =
                GroupPrincipal.FindByIdentity(_adContext, sGroupName);
             return oGroupPrincipal;
@@ -179,10 +177,16 @@ namespace DevStormMvc.Identity_Management
         {
             if (!IsUserExisiting(sUserName))
             {
-                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Devstorm/2016"); 
+                //PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Devstorm/2016"); 
                 
-                UserPrincipal oUserPrincipal = new UserPrincipal
-                   (oPrincipalContext, sUserName, sPassword, true);
+                PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
+                    "wad.devstorm.tn",
+                    "OU=ZARA,"+AMAuthentication.adRoot,
+                    AMAuthentication.adUserName,
+                    AMAuthentication.adUserPassword); 
+                
+
+                UserPrincipal oUserPrincipal = new UserPrincipal(ctx, sUserName, AMAuthentication.adUserPassword, true);
 
                 //User Log on Name
                 oUserPrincipal.UserPrincipalName = sUserName;
@@ -231,5 +235,34 @@ namespace DevStormMvc.Identity_Management
 
 
         }
+		
+        public List<Principal> GetAllOuUsers()
+        {
+            List<Principal> Users = new List<Principal>() ;
+            
+            UserPrincipal qbeUser = new UserPrincipal(_adContext);
+           // qbeUser.Enabled = true;
+
+            PrincipalSearcher srch = new PrincipalSearcher(qbeUser);
+           
+            // find all matches
+            foreach (var found in srch.FindAll())
+            {
+                Users.Add(found);
+            }
+            return Users;
+        }
+
+        /// <summary>
+        /// Enables a disabled user account
+        /// </summary>
+        /// <param name="sUserName">The username to enable</param>
+        public void EnableUserAccount(string sUserName)
+        {
+            UserPrincipal oUserPrincipal = _userCredential.GetUser(sUserName);
+            oUserPrincipal.Enabled = true;
+            oUserPrincipal.Save();
+        }
+		
     }
 }

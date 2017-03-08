@@ -21,12 +21,12 @@ namespace DevStormMvc.Controllers
         //IServiceProduct serviceProduct = new ServiceProduct();
         IServiceComment serviceComment = new ServiceComment();
         IServiceShowroom serviceShowroom = new ServiceShowroom();
-		ServiceProduct serviceProduct;
+        ServiceProduct serviceProduct;
         ServiceImage serviceImage = new ServiceImage();
 
         public ProductController()
         {
-            serviceProduct =  new ServiceProduct();
+            serviceProduct = new ServiceProduct();
         }
 
         // GET: Product
