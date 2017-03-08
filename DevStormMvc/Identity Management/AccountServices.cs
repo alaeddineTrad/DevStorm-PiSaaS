@@ -15,6 +15,9 @@ namespace DevStormMvc.Identity_Management
         // Principal context instance
         private PrincipalContext _adContext;
 
+        // Principal context instance for OU specific utilization
+        //private PrincipalContext _adOuContext;
+
         public PrincipalContext adContext
         {
             get {
@@ -28,6 +31,7 @@ namespace DevStormMvc.Identity_Management
         public AccountServices()
         {
             _adContext = AMAuthentication.getContext();
+            //_adOuContext = AMAuthentication.getOuContext("ZARA");
         }
 
         /// <summary>
@@ -38,11 +42,13 @@ namespace DevStormMvc.Identity_Management
         public AccountServices(string userName, string password)
         {
             _adContext = AMAuthentication.getContext();
+            //_adOuContext = AMAuthentication.getOuContext("ZARA");
             _userCredential = new UserCredential(userName, password,_adContext);
         }
         public AccountServices(string userName)
         {
             _adContext = AMAuthentication.getContext();
+            //_adOuContext = AMAuthentication.getOuContext("ZARA");
             _userCredential = new UserCredential(userName, _adContext);
 
         }
@@ -98,8 +104,6 @@ namespace DevStormMvc.Identity_Management
         /// <returns>Returns the GroupPrincipal Object</returns>
         public GroupPrincipal GetGroup(string sGroupName)
         {
-            
-
             GroupPrincipal oGroupPrincipal =
                GroupPrincipal.FindByIdentity(_adContext, sGroupName);
             return oGroupPrincipal;
@@ -176,10 +180,16 @@ namespace DevStormMvc.Identity_Management
         {
             if (!IsUserExisiting(sUserName))
             {
-                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Ci%c9vG!$q"); 
+                
+                PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
+                    "wad.devstorm.tn",
+                    "OU=ZARA,"+AMAuthentication.adRoot,
+                    AMAuthentication.adUserName,
+                    AMAuthentication.adUserPassword); 
+                
 
                 UserPrincipal oUserPrincipal = new UserPrincipal
-                   (oPrincipalContext, sUserName, sPassword, true);
+                   (ctx, sUserName, AMAuthentication.adUserPassword, true);
 
                 //User Log on Name
                 oUserPrincipal.UserPrincipalName = sUserName;
@@ -214,7 +224,18 @@ namespace DevStormMvc.Identity_Management
             }
             return Users;
         }
-       
+
+        /// <summary>
+        /// Enables a disabled user account
+        /// </summary>
+        /// <param name="sUserName">The username to enable</param>
+        public void EnableUserAccount(string sUserName)
+        {
+            UserPrincipal oUserPrincipal = _userCredential.GetUser(sUserName);
+            oUserPrincipal.Enabled = true;
+            oUserPrincipal.Save();
+        }
+
 
     }
 }
