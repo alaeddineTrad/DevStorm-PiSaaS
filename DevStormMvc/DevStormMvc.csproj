@@ -182,16 +182,21 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
+    <Compile Include="Controllers\CommentAPIController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RateAPIController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
+    <Compile Include="Controllers\ShowroomAPIController.cs" />
     <Compile Include="Controllers\ShowroomController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Controllers\VoucherAPIController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="CS.aspx.cs">
       <DependentUpon>CS.aspx</DependentUpon>
@@ -411,7 +416,6 @@
     <Content Include="Views\Product\_Showrooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Content Include="Views\ADUser\Details.cshtml" />
     <Content Include="Views\ADUser\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
@@ -424,7 +428,6 @@
     <Folder Include="Content\uploads\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Image\" />
-    <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>

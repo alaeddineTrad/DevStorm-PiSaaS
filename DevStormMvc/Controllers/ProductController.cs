@@ -18,15 +18,15 @@ namespace DevStormMvc.Controllers
     public class ProductController : Controller
     {
         IServiceRate serviceRate = new ServiceRate();
-        IServiceProduct serviceProduct = new ServiceProduct();
+        //IServiceProduct serviceProduct = new ServiceProduct();
         IServiceComment serviceComment = new ServiceComment();
         IServiceShowroom serviceShowroom = new ServiceShowroom();
-		ServiceProduct serviceProduct;
+        ServiceProduct serviceProduct;
         ServiceImage serviceImage = new ServiceImage();
 
         public ProductController()
         {
-            serviceProduct =  new ServiceProduct();
+            serviceProduct = new ServiceProduct();
         }
 
         // GET: Product

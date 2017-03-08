@@ -67,35 +67,10 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-
-    <Compile Include="Migrations\201703051420003_v1.cs" />
-    <Compile Include="Migrations\201703051420003_v1.Designer.cs">
-      <DependentUpon>201703051420003_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201703071530223_version1AfterPullingFromGit.cs" />
+    <Compile Include="Migrations\201703071530223_version1AfterPullingFromGit.Designer.cs">
+      <DependentUpon>201703071530223_version1AfterPullingFromGit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703062002059_v2.cs" />
-    <Compile Include="Migrations\201703062002059_v2.Designer.cs">
-      <DependentUpon>201703062002059_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703062017218_v3.cs" />
-    <Compile Include="Migrations\201703062017218_v3.Designer.cs">
-      <DependentUpon>201703062017218_v3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703062045491_v4.cs" />
-    <Compile Include="Migrations\201703062045491_v4.Designer.cs">
-      <DependentUpon>201703062045491_v4.cs</DependentUpon>
-	</compile>
-    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.cs" />
-    <Compile Include="Migrations\201703051543115_ImageEntityUpdate.Designer.cs">
-      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
-	</Compile>
-    <Compile Include="Migrations\201703051652077_v1.cs" />
-    <Compile Include="Migrations\201703051652077_v1.Designer.cs">
-      <DependentUpon>201703051652077_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703061629109_v2.cs" />
-    <Compile Include="Migrations\201703061629109_v2.Designer.cs">
-      <DependentUpon>201703061629109_v2.cs</DependentUpon>
-	</Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -115,21 +90,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703051420003_v1.resx">
-      <DependentUpon>201703051420003_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703062002059_v2.resx">
-      <DependentUpon>201703062002059_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703062017218_v3.resx">
-      <DependentUpon>201703062017218_v3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703062045491_v4.resx">
-      <DependentUpon>201703062045491_v4.cs</DependentUpon>
-	</EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703051543115_ImageEntityUpdate.resx">
-      <DependentUpon>201703051543115_ImageEntityUpdate.cs</DependentUpon>
-	</EmbeddedResource>
     <Content Include="obj\Debug\Data.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -138,12 +98,9 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703051652077_v1.resx">
-      <DependentUpon>201703051652077_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703071530223_version1AfterPullingFromGit.resx">
+      <DependentUpon>201703071530223_version1AfterPullingFromGit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703061629109_v2.resx">
-      <DependentUpon>201703061629109_v2.cs</DependentUpon>
-	 </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
