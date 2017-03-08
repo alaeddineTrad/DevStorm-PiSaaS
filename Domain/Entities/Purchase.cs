@@ -10,46 +10,19 @@ namespace Domain.Entities
 {
     public class Purchase
     {
-        
 
-        private DateTime date;
-        private float total;
-       
         //[Key]
         //[Column(Order = 1)]
-        public int UserId { get; set; }
         //[Key]
-        //[Column(Order = 2)]
-        public int ProductId { get; set; }
+        public int PurchaseId { get; set; }
         //[ForeignKey("UserId")]
-        public virtual Buyer Buyer { get; set; }
+
         //[ForeignKey("ProductId")]
-        public virtual Product Product { get; set; }
-        
-        public DateTime Date
-        {
-            get
-            {
-                return date;
-            }
+        //[Column(Order = 2)]
+        public DateTime DatePurchase { get; set; }
+        public Double Total { get; set; }
+        public String  Status { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
-            set
-            {
-                date = value;
-            }
-        }
-
-        public float Total
-        {
-            get
-            {
-                return total;
-            }
-
-            set
-            {
-                total = value;
-            }
-        }
     }
 }

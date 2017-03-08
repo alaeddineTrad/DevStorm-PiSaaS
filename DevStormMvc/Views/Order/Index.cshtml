@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DevStormMvc.Models.OrderModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row row-col-gap">
+        <div class="text-center">
+            <h2>Cart</h2>
+            <div class="gap gap-small"></div>
+        </div>
+        <div>
+            @*<input style="float:right;margin-right:15px" ; type="submit" value="Create" class="btn btn-success" />
+                @*<p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>*@
+
+            <div class="box">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                     {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                               @(item.Quantity*item.Price)
+                            </td>
+                           
+                            <td>
+                                @Html.ActionLink("Edit", "Create", new { idProduct = item.idProd }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })|
+                             @Html.ActionLink("Delete", "Delete", new { id = item.OrderId }, htmlAttributes: new { @class = "btn btn-danger", @type = "submit" }) 
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                @Html.ActionLink("Back to products", "Index","Product", "", htmlAttributes: new { @class = "btn btn-primary", @type = "submit" })
+                @Html.ActionLink("Clear all", "Clear","", htmlAttributes: new { @class = "btn btn-danger", @type = "submit" })
+               <div style="float:right;color:green;padding-right:250px;"><h3>Total : @ViewBag.Total€</h3></div> 
+            </div>
+
+        </div>
+    </div>
+</div>
+

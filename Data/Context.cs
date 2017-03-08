@@ -35,7 +35,7 @@ namespace Data
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new InteractionConfiguration());
             modelBuilder.Configurations.Add(new ReviewConfiguration());
-            modelBuilder.Configurations.Add(new PurchaseConfiguration());
+        //    modelBuilder.Configurations.Add(new PurchaseConfiguration());
             modelBuilder.Conventions.Add(new DateTime2());
         }
 

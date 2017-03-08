@@ -14,9 +14,9 @@ namespace DevStormMvc.Controllers
     public class ADUserController : Controller
     {
         // GET: ADUser
-
+        ADCrud adc = new ADCrud();
         IServiceUser su = new ServiceUser();
-        AccountServices acs = new AccountServices("alaa");
+        AccountServices acs = new AccountServices("user");
         // GET: AD
         public ActionResult Index()
         {
@@ -39,12 +39,25 @@ namespace DevStormMvc.Controllers
                 if (um.password1 == um.password2)
                 {
                     u.UserName = um.username;
+                    //u.FirstName = um.firstname;
+                    //u.LastName = um.lastName;
+                    //u.Password = um.password1;
+                    //u.Email = um.email;
+                    //u.Phone = um.phone;
                     u.Adress = new Domain.Entities.ComplexType.Address { City = um.city ,Street=um.street,ZipCode=um.zipcode};
-                                    
-                        
-                        su.Add(u);
-                        su.Commit();
+                    try
+                    {
                         acs.CreateNewUser(um.username, um.password1, um.firstname, um.lastName, um.email, um.phone);
+                    }
+                    catch
+                    {
+                        return View();
+                    }
+                    //acs.EnableUserAccount(u.UserName);
+                    
+                    su.Add(u);
+                        su.Commit();
+                       
                         return RedirectToAction("Details");
                        
                    
@@ -86,7 +99,7 @@ namespace DevStormMvc.Controllers
         // GET: ADUser/Edit/
         public ActionResult Edit(string username)
         {
-            acs = new AccountServices(username);
+            acs = new AccountServices("user1");
             UserPrincipal user = acs.ShowUser();
             ADUserModel userModel = new ADUserModel
             {

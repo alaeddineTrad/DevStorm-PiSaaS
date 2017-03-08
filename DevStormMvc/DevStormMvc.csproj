@@ -34,6 +34,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="Alias-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28localdb%29\MSSQLLocalDB%3b          Initial Catalog=DevStormDBMVC%3b          Integrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Alias-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -183,6 +194,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
     <Compile Include="Controllers\CommentAPIController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -226,6 +238,7 @@
     <Compile Include="Models\InteractionModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MediaModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\RateModel.cs" />
@@ -422,11 +435,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ADUser\Create.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\uploads\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\test\" />
   </ItemGroup>

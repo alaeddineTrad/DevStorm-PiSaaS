@@ -92,7 +92,7 @@ namespace DevStormMvc.Identity_Management.Login
             var identity = new ClaimsIdentity(MyAuthentication.ApplicationCookie, ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Active Directory"));
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
-            identity.AddClaim(new Claim(ClaimTypes.Sid, this.getIdByUsername(userPrincipal.SamAccountName).ToString()));
+            //identity.AddClaim(new Claim(ClaimTypes.Sid, this.getIdByUsername(userPrincipal.SamAccountName).ToString()));
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
             if (!String.IsNullOrEmpty(userPrincipal.EmailAddress))
             {
@@ -109,11 +109,11 @@ namespace DevStormMvc.Identity_Management.Login
         /// </summary>
         /// <param name="username">Please enter his username here</param>
         /// <returns></returns>
-        private long getIdByUsername(string username)
-        {
-            ServiceUser serviceUser = new ServiceUser();
-            IEnumerable<User> users = serviceUser.GetMany(x => x.UserName.Equals(username));
-            return users.First().UserId;
-        }
+        //private long getIdByUsername(string username)
+        //{
+        //    ServiceUser serviceUser = new ServiceUser();
+        //    IEnumerable<User> users = serviceUser.GetMany(x => x.UserName.Equals(username));
+        //    return users.First().UserId;
+        //}
     }
 }

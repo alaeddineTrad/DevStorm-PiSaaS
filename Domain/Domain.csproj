@@ -62,6 +62,7 @@
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Interaction.cs" />
     <Compile Include="Entities\Media.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Purchase.cs" />
     <Compile Include="Entities\Rate.cs" />
