@@ -117,14 +117,6 @@
     <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703051652077_v1.resx">
-      <DependentUpon>201703051652077_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703061629109_v2.resx">
-      <DependentUpon>201703061629109_v2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

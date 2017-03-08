@@ -193,6 +193,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ADUserController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\RateReviewController.cs" />
+    <Compile Include="Controllers\ShowroomController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="CS.aspx.cs">
@@ -231,6 +233,7 @@
     <Compile Include="Models\InteractionModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MediaModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\RateModel.cs" />
@@ -399,27 +402,44 @@
     <Content Include="Views\Shared\_showroomer.cshtml" />
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\Comment\_Comment.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
-    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\Create11.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Voucher\Create.cshtml" />
     <Content Include="Views\Voucher\Index.cshtml" />
     <Content Include="Views\Voucher\Details.cshtml" />
     <Content Include="Views\Voucher\Edit.cshtml" />
     <Content Include="Views\Voucher\Delete.cshtml" />
+    <Content Include="Views\Product\_Rate.cshtml" />
+    <Content Include="Views\Product\_CreateRate.cshtml" />
+    <Content Include="Views\Rate\Create.cshtml" />
+    <Content Include="Views\Rate\Index.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Rate\Delete.cshtml" />
+    <Content Include="Views\Rate\Edit.cshtml" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Showroom\Create.cshtml" />
+    <Content Include="Views\Showroom\Index.cshtml" />
+    <Content Include="Views\Showroom\Delete.cshtml" />
+    <Content Include="Views\Product\_Showrooms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
     <Content Include="Views\ADUser\Details.cshtml" />
     <Content Include="Views\ADUser\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ADUser\Create.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\uploads\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Rate\" />
     <Folder Include="Views\test\" />

@@ -21,7 +21,7 @@ namespace Domain.Entities
         public virtual ICollection<Image> Images { get; set; }
         public virtual ICollection<Interaction> Interactions { get; set; }
         public virtual ICollection<Showroom> Showrooms { get; set; }
-        public virtual ICollection<Purchase> Purchases { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
 
         public int ProductId

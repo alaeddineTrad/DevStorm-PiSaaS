@@ -11,9 +11,8 @@ namespace Data.Configuration
     class PurchaseConfiguration : EntityTypeConfiguration<Purchase>
     {public PurchaseConfiguration()
         {
-            HasKey(a => new { a.UserId, a.ProductId });
-            HasRequired(a => a.Buyer).WithMany(a => a.Purchases).HasForeignKey(a => a.UserId).WillCascadeOnDelete(true);
-            HasRequired(a => a.Product).WithMany(a => a.Purchases).HasForeignKey(a => a.ProductId).WillCascadeOnDelete(true);
+            /*HasRequired(a => a.Buyer).WithMany(a => a.Purchases).HasForeignKey(a => a.UserId).WillCascadeOnDelete(true);
+            HasRequired(a => a.Product).WithMany(a => a.Purchases).HasForeignKey(a => a.ProductId).WillCascadeOnDelete(true);*/
 
         }
     }
