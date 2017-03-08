@@ -177,16 +177,16 @@ namespace DevStormMvc.Identity_Management
         {
             if (!IsUserExisiting(sUserName))
             {
-                //PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Devstorm/2016"); 
+                PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, "DEVSTORM", "OU=ZARA,DC=devstorm,DC=tn", "Administrator", "Devstorm/2016"); 
                 
-                PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
-                    "wad.devstorm.tn",
-                    "OU=ZARA,"+AMAuthentication.adRoot,
-                    AMAuthentication.adUserName,
-                    AMAuthentication.adUserPassword); 
+                //PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
+                //    "wad.devstorm.tn",
+                //    "OU=ZARA,"+AMAuthentication.adRoot,
+                //    AMAuthentication.adUserName,
+                //    AMAuthentication.adUserPassword); 
                 
 
-                UserPrincipal oUserPrincipal = new UserPrincipal(ctx, sUserName, AMAuthentication.adUserPassword, true);
+                UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, AMAuthentication.adUserPassword, true);
 
                 //User Log on Name
                 oUserPrincipal.UserPrincipalName = sUserName;

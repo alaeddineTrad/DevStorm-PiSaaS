@@ -1,4 +1,5 @@
-﻿using DevStormMvc.Models;
+﻿using DevStormMvc.Identity_Management;
+using DevStormMvc.Models;
 using Domain.Entities;
 using ServicesSpec;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace DevStormMvc.Controllers
 {
+    [ADGroupAuthorize]
     public class OrderController : Controller
     {
         ServiceProduct serviceProduct;

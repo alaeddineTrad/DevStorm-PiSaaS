@@ -15,6 +15,7 @@ using Services;
 
 namespace DevStormMvc.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         IServiceRate serviceRate = new ServiceRate();

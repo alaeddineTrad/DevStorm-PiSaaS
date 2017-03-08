@@ -7,13 +7,13 @@ namespace Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class version1AfterPullingFromGit : IMigrationMetadata
+    public sealed partial class Creatingthefinaldatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(version1AfterPullingFromGit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Creatingthefinaldatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703071530223_version1AfterPullingFromGit"; }
+            get { return "201703080318444_Creating-the-final-database"; }
         }
         
         string IMigrationMetadata.Source

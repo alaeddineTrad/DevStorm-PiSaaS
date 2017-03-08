@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace DevStormMvc.Controllers
 {
+    [Authorize]
     public class CommentController : Controller
     {
         IServiceComment serviceComment = new ServiceComment();

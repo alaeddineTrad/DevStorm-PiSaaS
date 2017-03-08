@@ -37,12 +37,14 @@
     @Styles.Render("~/Content/showroomer/cssschemes/denim.css")
     @Styles.Render("~/Content/showroomer/cssschemes/scarlet.css")
 </head>
-@if (@Request.Cookies["User"].Values["Group"].Equals("Showroomer"))
-{
-        @:<body class="boxed bg-cover" style="background-image: url(@Url.Content(String.Format("~/Content/showroomer/img/backgrounds/{0}.png", Request.Cookies["User"].Values["OU"]))">
+@if (@Request.Cookies.Count > 1 && @Request.Cookies.Count <= 5)
+    {if (@Request.Cookies["User"].Values["Group"].Equals("Showroomer"))
+        {
+            @:<body class="boxed bg-cover" style="background-image: url(@Url.Content(String.Format("~/Content/showroomer/img/backgrounds/{0}.png", Request.Cookies["User"].Values["OU"]))">
+        }
     }
 else
-    {
+{
         @:<body class="boxed bg-cover" style="background-image: url(@Url.Content("~/Content/showroomer/img/backgrounds/light.png"))">
     }
             <div class="global-wrapper clearfix" id="global-wrapper">
@@ -993,8 +995,8 @@ else
                         <div class="collapse navbar-collapse" id="main-nav-collapse">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown">
-                                    <a href="#"><i class="fa fa-reorder"></i>&nbsp; Shop by Category<i class="drop-caret" data-toggle="dropdown"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-category">
+                                    <a href="http://localhost:57219/Voucher/Index">Vouchers</a>
+                                    @*<ul class="dropdown-menu dropdown-menu-category">
                                         <li>
                                             <a href="#"><i class="fa fa-home dropdown-menu-category-icon"></i>Home & Garden</a>
                                             <div class="dropdown-menu-category-section">
@@ -1747,11 +1749,11 @@ else
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul>*@
                                 </li>
                                 <li class="dropdown yamm-fw">
-                                    <a href="#">Pages<i class="drop-caret" data-toggle="dropdown"></i></a>
-                                    <ul class="dropdown-menu">
+                                    <a href="http://localhost:57219/Product/Index">Products</a>
+                                    @*<ul class="dropdown-menu">
                                         <li class="yamm-content">
                                             <div class="row row-eq-height row-col-border">
                                                 <div class="col-md-2">
@@ -1943,7 +1945,7 @@ else
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul>*@
                                 </li>
                             </ul>
                             <form class="navbar-form navbar-left navbar-main-search" role="search">
@@ -1953,14 +1955,24 @@ else
                                 </div>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
-                                <li>
-
-                                    <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>
+                                @if (@Request.Cookies.Count == 1)
+                                {
+                                <li data-effect="mfp-move-from-top" class="popup-text">
+                                    <a href="@Html.Partial("_LoginPartial")"></a>
+                                   @* <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>*@
                                 </li>
                                 <li>
                                     <a href="#nav-account-dialog" data-effect="mfp-move-from-top" class="popup-text"> @Html.ActionLink("Create Account", "Create", "ADuser")</a>
                                 </li>
-                                <li class="dropdown">
+                                }
+                                else
+                                {
+                                    <li data-effect="mfp-move-from-top" class="popup-text">
+                                        <a href="@Html.Partial("_LoginPartial")"></a>
+                                        @* <a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">@Html.Partial("_LoginPartial")</a>*@
+                                    </li>
+                                }
+                                @*<li class="dropdown">
                                     <a class="fa fa-shopping-cart" href="shopping-cart.html"></a>
                                     <ul class="dropdown-menu dropdown-menu-shipping-cart">
                                         <li>
@@ -2012,7 +2024,7 @@ else
                                             <button class="dropdown-menu-shipping-cart-checkout btn btn-primary">Checkout</button>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>*@
                             </ul>
                         </div>
                     </div>

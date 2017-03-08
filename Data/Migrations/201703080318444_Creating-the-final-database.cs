@@ -3,7 +3,7 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class vmajd : DbMigration
+    public partial class Creatingthefinaldatabase : DbMigration
     {
         public override void Up()
         {

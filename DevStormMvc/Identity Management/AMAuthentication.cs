@@ -30,18 +30,18 @@ namespace DevStormMvc.Identity_Management
         //private static string _adUserPassword = "KingHolding2007.";
 
         // AWS Attributes
-        private static string _adServerName = "34.249.163.90:389";
-        private static string _adRoot = "dc=devstorm,dc=tn";
-        private static string _adUserName = "Administrator";
-        private static string _adUserPassword = "Ci%c9vG!$q";
+        //private static string _adServerName = "34.249.163.90:389";
+        //private static string _adRoot = "dc=devstorm,dc=tn";
+        //private static string _adUserName = "Administrator";
+        //private static string _adUserPassword = "Ci%c9vG!$q";
 
 
 
         // Sedki Attributes
-        //private string _adServerName = "windowsserverad.devstorm.tn:389";
-        //private string _adRoot = "dc=devstorm,dc=tn";
-        //private string _adUserName = "Administrator";
-        //private string _adUserPassword = "Devstorm/2016";
+        private static string _adServerName = "windowsserverad.devstorm.tn:389";
+        private static string _adRoot = "dc=devstorm,dc=tn";
+        private static string _adUserName = "Administrator";
+        private static string _adUserPassword = "Devstorm/2016";
 
         // This the public static attributes of the principal context
         public static string adServerName { get { return _adServerName; } }

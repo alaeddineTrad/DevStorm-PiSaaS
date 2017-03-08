@@ -1,4 +1,5 @@
 ﻿using DevStormMvc.helper;
+using DevStormMvc.Identity_Management;
 using DevStormMvc.Models;
 using Domain.Entities;
 using ServicesSpec;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace DevStormMvc.Controllers
 {
+    [ADGroupAuthorize]
     public class VoucherController : Controller
     {
         ServiceVoucher serviceVoucher = new ServiceVoucher();

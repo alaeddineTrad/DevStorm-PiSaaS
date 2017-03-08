@@ -48,24 +48,19 @@ namespace DevStormMvc.Controllers
                     //u.Email = um.email;
                     //u.Phone = um.phone;
                     u.Adress = new Domain.Entities.ComplexType.Address { City = um.city ,Street=um.street,ZipCode=um.zipcode};
-                    try
-                    {
+                    //try
+                    //{
                         acs.CreateNewUser(um.username, um.password1, um.firstname, um.lastName, um.email, um.phone);
-                    }
-                    catch
-                    {
-                        return View();
-                    }
+                    //}
+                    //catch
+                    //{
+                    //    return View();
+                    //}
                     //acs.EnableUserAccount(u.UserName);
                     
-                    su.Add(u);
+                        su.Add(u);
                         su.Commit();
-                       return RedirectToAction("Index","Login");
-                       
-                   
-                        
-                        //return ex;
-
+                        return RedirectToAction("Index", "Login");
                     
                 }
             }
